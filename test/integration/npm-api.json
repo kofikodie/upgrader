@@ -1,0 +1,1988 @@
+{
+    "_id": "npm-api",
+    "_rev": "20-42922499b5bebe8da532619965089d81",
+    "name": "npm-api",
+    "description": "Node.js library for getting info from NPM’s API",
+    "dist-tags": {
+        "latest": "1.0.1"
+    },
+    "versions": {
+        "0.4.0": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.0",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib/"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.1.1",
+                "base": "^0.8.1",
+                "base-option": "^0.7.0",
+                "base-plugins": "^0.4.6",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.15.5",
+                "download-stats": "^0.2.2",
+                "get-value": "^2.0.3",
+                "lazy-cache": "^1.0.3",
+                "merge-deep": "^2.0.2",
+                "moment": "^2.12.0",
+                "request": "^2.69.0",
+                "set-value": "^0.3.3"
+            },
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "download-stats",
+                        "base"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "devDependencies": {
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7"
+            },
+            "gitHead": "472ae5802b397dd0b05b35f3a67765af816df918",
+            "_id": "npm-api@0.4.0",
+            "_shasum": "44faf4e48a2d7f9d7e0ede6b6956f29ce7b31a60",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "44faf4e48a2d7f9d7e0ede6b6956f29ce7b31a60",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.0.tgz",
+                "integrity": "sha512-tY5fNfnaaR5B9rWynZJfuempTPdblhhz7EBjbKA5lJiwoEmimE/i8DCgO0rKWGWcv1zLy+5tF/rTcKhikGX1sQ==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEYCIQChrnNdTeUr6GuEy7kBz4JYlmFEAUzJ14Iyb6NFnSbKfgIhAOZt8urM55p2tiIHBsWp0RwS6CLoI7/kdI5kmpcEZ46b"
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-13-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.0.tgz_1458742536498_0.1001538468990475"
+            },
+            "directories": {}
+        },
+        "0.4.1": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.1",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib/"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.1.1",
+                "base": "^0.8.1",
+                "base-option": "^0.7.0",
+                "base-plugins": "^0.4.6",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.15.5",
+                "download-stats": "^0.2.2",
+                "get-value": "^2.0.3",
+                "lazy-cache": "^1.0.3",
+                "merge-deep": "^2.0.2",
+                "moment": "^2.12.0",
+                "request": "^2.69.0",
+                "set-value": "^0.3.3"
+            },
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "download-stats",
+                        "base"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "devDependencies": {
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7"
+            },
+            "gitHead": "918f2aff49b91a3b2cf0ec6857ef69609ea19605",
+            "_id": "npm-api@0.4.1",
+            "_shasum": "97af620c667a642bca373f04f041e1949b36b513",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "97af620c667a642bca373f04f041e1949b36b513",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.1.tgz",
+                "integrity": "sha512-8ksyYGaERjppccm9sNZbiDCIPbHbKqnhbHMWUE64RDHXlWNTsUw4VcAlNCgFn2oghO9OzGci/+vtqec4d/sBow==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEQCIDMpmktXqoLU6fcw/ObgA5AFHfJV3oUaTRbT/eOJcupeAiBRynjd4zGp2ZlOeueO4XtNnG8e5aLZ5wUrTSYmDuL8Yg=="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-13-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.1.tgz_1458742617386_0.6211911821737885"
+            },
+            "directories": {}
+        },
+        "0.4.2": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.2",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib/"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.1.1",
+                "base": "^0.8.1",
+                "base-option": "^0.7.0",
+                "base-plugins": "^0.4.6",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.15.5",
+                "download-stats": "^0.2.2",
+                "get-value": "^2.0.3",
+                "lazy-cache": "^1.0.3",
+                "merge-deep": "^2.0.2",
+                "moment": "^2.12.0",
+                "request": "^2.69.0",
+                "set-value": "^0.3.3"
+            },
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "download-stats",
+                        "base"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "devDependencies": {
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7"
+            },
+            "gitHead": "9afc204ea19f7b1216100eacf8ed97daa853b880",
+            "_id": "npm-api@0.4.2",
+            "_shasum": "6a552f269ae571473729a9bdbdc59c333c7206e7",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "6a552f269ae571473729a9bdbdc59c333c7206e7",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.2.tgz",
+                "integrity": "sha512-2oyLnRRDOez5Z76rLz7Mg6upc5a6Amk8HTctE1RaYgV3wIpSBlRPQN0aRq/dX/JPw7Zq2swVbJrUk/Uqt91tMg==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEYCIQCv4OQmyaAb1JhyrMts6MFsnh1CbvB+HHCZg5CjmjjDeAIhAJ6IJ+3v2AiMLSCLfSo+ri1tWFb72S5yLvHRIM7j4+fa"
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.2.tgz_1458767564351_0.2527285316027701"
+            },
+            "directories": {}
+        },
+        "0.4.3": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.3",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib/"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.1.1",
+                "base": "^0.8.1",
+                "base-option": "^0.7.0",
+                "base-plugins": "^0.4.6",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.15.5",
+                "download-stats": "^0.2.2",
+                "get-value": "^2.0.3",
+                "lazy-cache": "^1.0.3",
+                "merge-deep": "^2.0.2",
+                "moment": "^2.12.0",
+                "request": "^2.69.0",
+                "set-value": "^0.3.3"
+            },
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "download-stats",
+                        "base"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "devDependencies": {
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7"
+            },
+            "gitHead": "ec43df538ede3fe0e0edac7366fe73945ce2237a",
+            "_id": "npm-api@0.4.3",
+            "_shasum": "5dbbc8ff159fb1ec529cefe93861f46621803afe",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "5dbbc8ff159fb1ec529cefe93861f46621803afe",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.3.tgz",
+                "integrity": "sha512-gBn5+NBL3n4L7vczXYY+sLjHiWQyYb/xr5/vMUSn/lz7a8/AjDW2YF1rZudCCuTnlaHf0FxYmUqhDTrRHUfHjw==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEUCIFwtF0D28SnGSO1UO2GA98HpMyyKH8u9CLuJJseyfg82AiEA2nV2GOsc3eNsL4W/ZunWPgCrEx4lRBcJrhrO/+8srn0="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.3.tgz_1458772693579_0.6153379417955875"
+            },
+            "directories": {}
+        },
+        "0.4.4": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.4",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib/"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.1.1",
+                "base": "^0.8.1",
+                "base-option": "^0.7.0",
+                "base-plugins": "^0.4.6",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.15.5",
+                "download-stats": "^0.2.2",
+                "get-value": "^2.0.3",
+                "lazy-cache": "^1.0.3",
+                "merge-deep": "^2.0.2",
+                "moment": "^2.12.0",
+                "request": "^2.69.0",
+                "set-value": "^0.3.3"
+            },
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "download-stats",
+                        "base"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "devDependencies": {
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7"
+            },
+            "gitHead": "0430e3908c98e9784230b6a1f59cfb0ca6655626",
+            "_id": "npm-api@0.4.4",
+            "_shasum": "0302f9afdc638f483cf700700352a011d0ebca21",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "0302f9afdc638f483cf700700352a011d0ebca21",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.4.tgz",
+                "integrity": "sha512-k+4PX5TSXUaiRGRBc4Of3BbJ4htHRStY2Bz52LaFIdn0Og+z5GJXPX1PHzfrSy7jDUkcOxx7iRTp3dx5YqKc8w==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEQCICcLMK8vs3T2SCz6fpwrdDclPukaB2MMdOQB7MuT7GBnAiARtkwlKXUJxY8g95qLPEDTt88e+G7YqCj96LZLqpeXoQ=="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.4.tgz_1458827331019_0.9339420818723738"
+            },
+            "directories": {}
+        },
+        "0.4.5": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.5",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib/"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.1.1",
+                "base": "^0.8.1",
+                "base-option": "^0.7.0",
+                "base-plugins": "^0.4.6",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.15.5",
+                "download-stats": "^0.2.2",
+                "get-value": "^2.0.3",
+                "lazy-cache": "^1.0.3",
+                "merge-deep": "^2.0.2",
+                "moment": "^2.12.0",
+                "request": "^2.69.0",
+                "set-value": "^0.3.3"
+            },
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "download-stats",
+                        "base"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "devDependencies": {
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7"
+            },
+            "gitHead": "fc817bf72ce67312342ba9fba9f09094684e4524",
+            "_id": "npm-api@0.4.5",
+            "_shasum": "f2ed6c7a7af612cffcf47a727530bb5a730f5ea7",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "f2ed6c7a7af612cffcf47a727530bb5a730f5ea7",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.5.tgz",
+                "integrity": "sha512-cu60HdvB0T0JsgYvmHBeoegwEDfVXAUEg5q0Xvu0EZCejESvCdXcXDQEhtuYoywgbDPv9/9I21VzTgCeeeaS8w==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEYCIQChchmyIZ8iJpYrLya4noj2RvsNGQVr146crW7OQ2W5LAIhAOFmPRhaDherskepKObu3pI//dzu4tw0guKXjkmPzany"
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.5.tgz_1459258658251_0.4192218999378383"
+            },
+            "directories": {}
+        },
+        "0.4.6": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.6",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib/"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.1.1",
+                "base": "^0.8.1",
+                "base-option": "^0.7.0",
+                "base-plugins": "^0.4.6",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.15.5",
+                "download-stats": "^0.2.2",
+                "get-value": "^2.0.3",
+                "lazy-cache": "^1.0.3",
+                "merge-deep": "^2.0.2",
+                "moment": "^2.12.0",
+                "request": "^2.69.0",
+                "set-value": "^0.3.3"
+            },
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "download-stats",
+                        "base"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "devDependencies": {
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7"
+            },
+            "gitHead": "d472f89eeef28a5f7713171c7c07f71f84e433eb",
+            "_id": "npm-api@0.4.6",
+            "_shasum": "525a7a6093fb5e300e43712116bd8cec6c6fc72d",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "525a7a6093fb5e300e43712116bd8cec6c6fc72d",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.6.tgz",
+                "integrity": "sha512-9GszEAPXHMN+fHOytaLPdq8jEOrM057RsdgibRTAlL2wOIAPeEbUzhRMn9uiRlf+t1Gk13vJ071Cq+fStvfglg==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEUCIQDF3QBqdqR/WtpDrg8OZUYLUVm66xraghMk6lKofQw6xAIgIccXNv8RJsGxFDGipzi2PAcXyxr9gn3hjU+201n3QRM="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.6.tgz_1459258875115_0.6478518447838724"
+            },
+            "directories": {}
+        },
+        "0.4.7": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.7",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.2.1",
+                "base": "^0.11.1",
+                "base-option": "^0.8.4",
+                "base-plugins": "^0.4.13",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.16.1",
+                "download-stats": "^0.3.0",
+                "get-value": "^2.0.6",
+                "lazy-cache": "^2.0.1",
+                "merge-deep": "^3.0.0",
+                "moment": "^2.15.1",
+                "request": "^2.75.0",
+                "set-value": "^0.4.0"
+            },
+            "devDependencies": {
+                "co-limiter": "^1.0.3",
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7",
+                "minimist": "^1.2.0",
+                "mocha": "^3.1.0",
+                "thunkify": "^2.1.2",
+                "write-json": "^0.2.2"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "gitHead": "6672cc80dbb02698844bb64bce44d23842cc5e8c",
+            "_id": "npm-api@0.4.7",
+            "_shasum": "3da15d2d8c91c60179a8dc7d65d78b937c1f8d41",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "3da15d2d8c91c60179a8dc7d65d78b937c1f8d41",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.7.tgz",
+                "integrity": "sha512-buhHqj1ZOswKEzs+5bxOVFI5MEYoYWKz0Rf4J3QuCPG7nMN4Y1OWg2CgadHwxMb9YHpzAt1eNhsbVIIulvCN4g==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEYCIQC704ekoXRvHcLYE/J8ulyHdG0YEHdqlHVZ6H8gTbGY1AIhAKywyu1atM9Prswn7es7WuPb6/lEVKeoTDfwNqg5PKTE"
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.7.tgz_1475085130696_0.5661537058185786"
+            },
+            "directories": {}
+        },
+        "0.4.8": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.8",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.2.1",
+                "base": "^0.11.1",
+                "base-option": "^0.8.4",
+                "base-plugins": "^0.4.13",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.16.1",
+                "download-stats": "^0.3.0",
+                "get-value": "^2.0.6",
+                "lazy-cache": "^2.0.1",
+                "merge-deep": "^3.0.0",
+                "moment": "^2.15.1",
+                "request": "^2.75.0",
+                "set-value": "^0.4.0"
+            },
+            "devDependencies": {
+                "co-limiter": "^1.0.3",
+                "firebase": "^2.4.1",
+                "gulp-format-md": "^0.1.7",
+                "minimist": "^1.2.0",
+                "mocha": "^3.1.0",
+                "thunkify": "^2.1.2",
+                "write-json": "^0.2.2"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "gitHead": "6242e40a3e6e67f8347dabb67620099e56d6c45b",
+            "_id": "npm-api@0.4.8",
+            "_shasum": "8052f83b19e7ca4ae00741f3db51d664711b8a79",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "8052f83b19e7ca4ae00741f3db51d664711b8a79",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.8.tgz",
+                "integrity": "sha512-T/6ohlhYQKW0THnNv1/ZSfo03nZsH73phxQjPOP+tc8meUZDjK2VVRQv5vuujAIUo827CFwfinVTP/rxSRDwAA==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEUCIH3GWM0cCTn4r1eQRSWUC0wWLp895KU6HunKE9eieddLAiEA46vL4tNtx7fPEDicmUpS7X1zBnjIJZc+3YDrF8cwMO0="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.8.tgz_1475466872937_0.7232499148231"
+            },
+            "directories": {}
+        },
+        "0.4.9": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.9",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.2.1",
+                "base": "^0.11.1",
+                "base-option": "^0.8.4",
+                "base-plugins": "^0.4.13",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.16.1",
+                "download-stats": "^0.3.2",
+                "get-value": "^2.0.6",
+                "lazy-cache": "^2.0.2",
+                "merge-deep": "^3.0.0",
+                "moment": "^2.16.0",
+                "request": "^2.78.0",
+                "set-value": "^0.4.0"
+            },
+            "devDependencies": {
+                "gulp-format-md": "^0.1.11",
+                "mocha": "^3.1.2"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "gitHead": "e751c83d6b4a3c95f2cba0e565dcb7c7e4903259",
+            "_id": "npm-api@0.4.9",
+            "_shasum": "9858add6112b0d09fec67e7386256bc492bbf8ed",
+            "_from": ".",
+            "_npmVersion": "3.7.5",
+            "_nodeVersion": "5.1.1",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "shasum": "9858add6112b0d09fec67e7386256bc492bbf8ed",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.9.tgz",
+                "integrity": "sha512-NAWt0Kb1gxgzQG/qPaOzLXLQGPjGlNxCAAMhpQcmOkf2/5G+/07Tva0nP7Rtn0aVS55e82rZ2dAb8all9uRlvQ==",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEQCIEg4zjpoN0MIf4Ntx8bDknFZDXWCZDncAZhhZQtROpvhAiAsZ6wNW7QponEmjpp2X8DvvqLtGOTkhitE4YR+VX2HGg=="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "packages-12-west.internal.npmjs.com",
+                "tmp": "tmp/npm-api-0.4.9.tgz_1479087705966_0.5133895904291421"
+            },
+            "directories": {}
+        },
+        "0.4.10": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.10",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.2.1",
+                "base": "^0.11.1",
+                "base-option": "^0.8.4",
+                "base-plugins": "^0.4.13",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.16.1",
+                "download-stats": "^0.3.2",
+                "get-value": "^2.0.6",
+                "lazy-cache": "^2.0.2",
+                "merge-deep": "^3.0.0",
+                "moment": "^2.16.0",
+                "request": "^2.78.0",
+                "set-value": "^0.4.0"
+            },
+            "devDependencies": {
+                "gulp-format-md": "^0.1.11",
+                "mocha": "^3.1.2"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "gitHead": "95c9466c8cec402e244e308fa0f45a96e14ca583",
+            "_id": "npm-api@0.4.10",
+            "_npmVersion": "5.3.0",
+            "_nodeVersion": "8.4.0",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "integrity": "sha512-nYns8zPjWA/PtH96ne5dD2vX07MHMbX7HJOC6DxsRu9chN+oIVcXP8TwN27y0ug0h0ZWPeq02AJi2uELZIPBsA==",
+                "shasum": "c4937a1d2061f94b6aac59429b0d12ea96f0c657",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.10.tgz",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEQCIGLr7g8K2EMvlqIDuaPJ2/0g/czz6tRGh618sun2FYMAAiBDvA7S6B1GuQHAeJ+tGitqFa+1WGl+MeTXMHU+l/qAEg=="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "s3://npm-registry-packages",
+                "tmp": "tmp/npm-api-0.4.10.tgz_1514398252308_0.4875007870141417"
+            },
+            "directories": {}
+        },
+        "0.4.11": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.11",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.2.1",
+                "base": "^0.11.1",
+                "base-option": "^0.8.4",
+                "base-plugins": "^0.4.13",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.16.1",
+                "download-stats": "^0.3.4",
+                "get-value": "^2.0.6",
+                "lazy-cache": "^2.0.2",
+                "merge-deep": "^3.0.0",
+                "moment": "^2.16.0",
+                "request": "^2.78.0",
+                "set-value": "^0.4.0"
+            },
+            "devDependencies": {
+                "gulp-format-md": "^0.1.11",
+                "mocha": "^3.1.2"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "gitHead": "602b2c7c8bea2ab7a72b7d3a886f6d13347b00b7",
+            "_id": "npm-api@0.4.11",
+            "_npmVersion": "5.3.0",
+            "_nodeVersion": "8.4.0",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "integrity": "sha512-hdWI+aPQBJkWWPUCXqg+w99LnH5lR7F6a+SbBrstBbQOvsvAbVi38rnsc1tAUemrVAeKaKCq9XKS8L6zk44xkQ==",
+                "shasum": "93325d88814c7d6e19e44e8f8e336842dfac59f1",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.11.tgz",
+                "fileCount": 16,
+                "unpackedSize": 36685,
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEQCIC+SCCOzHQoultAXOrhLP6PTtU6NH8uYSAot2XDgF1ZAAiBZxkKvnJf34IwgM9PpIXrIho0ZxaJT5Nx4n/IqJwqb6w=="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "directories": {},
+            "_npmOperationalInternal": {
+                "host": "s3://npm-registry-packages",
+                "tmp": "tmp/npm-api_0.4.11_1520380043866_0.3221176949446727"
+            },
+            "_hasShrinkwrap": false
+        },
+        "0.4.12": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.12",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "files": [
+                "index.js",
+                "lib"
+            ],
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.2.1",
+                "base": "^0.11.1",
+                "base-option": "^0.8.4",
+                "base-plugins": "^0.4.13",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.16.1",
+                "download-stats": "^0.3.4",
+                "get-value": "^2.0.6",
+                "lazy-cache": "^2.0.2",
+                "merge-deep": "^3.0.0",
+                "moment": "^2.16.0",
+                "request": "^2.78.0",
+                "set-value": "^0.4.0"
+            },
+            "devDependencies": {
+                "gulp-format-md": "^0.1.11",
+                "mocha": "^3.1.2"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "gitHead": "def50c2bda94a2673cdb84e776332a35ce02400c",
+            "_id": "npm-api@0.4.12",
+            "_npmVersion": "6.1.0",
+            "_nodeVersion": "10.3.0",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "integrity": "sha512-18AeCXyW31tiT5xz/AczxWpp9fSBWSU5G6R7IbOWnKGMb/xHLXZg5zbK8MyM8BzOqll9PnfEEaHkVQNRFFPBgA==",
+                "shasum": "5c8a5cfbf18e839e0358cf2ca8a603a67b2f3601",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.12.tgz",
+                "fileCount": 17,
+                "unpackedSize": 42827,
+                "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbL/Y4CRA9TVsSAnZWagAACHIP/RVQYdUT+0N+sDyNHAcs\nfv5j0g/J+Gm02DkIC0EwG1poOSHXEaqejEdMJ3XYmfbkBJ540kk4w7/mUumU\nl6lcmYXmHq5rKg3i12ViJiDswMSYtHKQ4xR8zUuC6lzL9S2NnBWWyCsWILEo\ntXHjsvmPFyRkjIVic2GFQQY4vvc+5HC9hbcJcWSE3V2rhkPAeee/Ba0GA3eo\nV5oN1HIDvHDCsIasfR6xVI9tMR5AguMEOTd3SWK+4+P0bNytWjWE0iiT7CCR\njLAPGfgdEXwXd8ZxqbRuXUBSt6+DUhof8YUxHAbcDwRd5im3sNTK9BN5FRNu\n4fp600zKSjbIxsBOpq81CO2vLtFy29D4Ey3be/TdsyMqKdeSGT/JvTsFPI1t\nsdgfS9Y3IKQRWHacYeRLK331fkLER7yNAPnF7t9DkOGEqhWorNIusbC02uni\njnDxDovcJ/Z0QeqoFsXHuu4y1294LY/bX8q4B+gJW4M9nrL5vc+Y1wOxYGG/\nDKUnce/Q55+HcwrtoM0JCZlYcfh28xrOg+X6/bnSeDCfsdkbTavW7KlL2D14\nr8PZmLcB3pLV9ZjDJSu8yZ06+G1mIVLpbXbv2wbsohHM3J4wIO1RO8kU6zRn\nKsN140PP2PfoSJ6f1Hi35M5PB5VpgkdqBApPqFZt4CloyRHnfxGSLWWnAUqh\nWdsN\r\n=vlYw\r\n-----END PGP SIGNATURE-----\r\n",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEUCIBLpp6iahMf4p/PsXnMuA/+OCchLxJ8FGMzqUJ2ymBbVAiEA04Nf5AxWFr2k7skqD6NMgdpwaBqoy4Xq7P0il2fuopM="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "directories": {},
+            "_npmOperationalInternal": {
+                "host": "s3://npm-registry-packages",
+                "tmp": "tmp/npm-api_0.4.12_1529869879932_0.3443394329410565"
+            },
+            "_hasShrinkwrap": false
+        },
+        "0.4.13": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "0.4.13",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "main": "index.js",
+            "engines": {
+                "node": ">=0.10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "dependencies": {
+                "JSONStream": "^1.2.1",
+                "base": "^0.11.1",
+                "base-option": "^0.8.4",
+                "base-plugins": "^0.4.13",
+                "clone-deep": "^0.2.4",
+                "co": "^4.6.0",
+                "data-store": "^0.16.1",
+                "download-stats": "^0.3.4",
+                "get-value": "^2.0.6",
+                "lazy-cache": "^2.0.2",
+                "merge-deep": "^3.0.0",
+                "moment": "^2.16.0",
+                "request": "^2.78.0",
+                "set-value": "^0.4.0"
+            },
+            "devDependencies": {
+                "gulp-format-md": "^0.1.11",
+                "mocha": "^3.1.2"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "gitHead": "5d1ffb1bdc76544a93b4db94bce7343bedaad64e",
+            "_id": "npm-api@0.4.13",
+            "_nodeVersion": "10.15.2",
+            "_npmVersion": "6.9.0",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "integrity": "sha512-PgGTjUECbAnZvn/KfgZifBOl8ycXuZ1JFgYIUAm1uIkBUsgv42hhD/frgs+3o3y8zKehZ3FH5kNvaFTRWlEI1w==",
+                "shasum": "e588f6ebb1e037e5a3df3061054c26718ca257c8",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-0.4.13.tgz",
+                "fileCount": 16,
+                "unpackedSize": 37354,
+                "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdB+dTCRA9TVsSAnZWagAAIJ0P/1hSU/+Et/W49vCDfvPc\n9ONLjfIAY8cO8IUiwnjRH3Evo0ahYePX/KjlWXLJgqjevoaOD/7KwSKplD6d\no+AFXc+HmA6xj43NpBZj8lzL4aNq63T1Y5GZGEabZ3C6+IGNhUIvttQ1Pw/x\nvim+GeOjE0PgWq8WPJPj3XJl6f7YBFIKsVDruIDY09oRjyc7j3rmNMDoFb7q\neShlnS/ng9u4rqYeXtYyghQwt4WYh4OvYttkLaaaO6oGGPteBpn2NE09g0Bf\nNuS4BUtoik1ZBwzM3x1B2AV8qFF8vh/FqJF+Mv+Dd4GRndEyb+W77O6uHa94\nms84hfwm7bujHDioJjRKUsvC2aU6tJcCRYKEffaRV9RUX4FnmjEHB0JPkIIf\npCT0CgFaXLqOa3054at0kDxkyxQFkaNjE1+DrNYRdeoN/nXH5BUeb8QJlcYp\nwBwdNB4zaZhzGXMRxvrhyMEI9j2cpvQGVU+45SJcZbE8vs5NgsVSUKNa0eeV\n++THvhi5aX3T5uHo8nLrxa2beSd+shzx4MiOyrhInZ2vAds8E6uPJ6TJAvH/\n1zZVpGz0/WQ4IDEWelbO/oAfQClxkpy00+JtXKBixG4rs75k9fl5i8sQBAlU\nXqzLFC6rHobX9VfK/jKfGPtRYgmYjIH2ovQnxU2bb9CuiO4vIEIopKe3sdXd\n1mIR\r\n=WrsW\r\n-----END PGP SIGNATURE-----\r\n",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEQCIDZ8CmoYrRlJBrLE9/7iP7qjj7qefEJn5EPgiQIMUz8hAiBVZnZlW0NuZwuzvuui/adoeeJvd5tdrrbrRlqA3KIeTw=="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "directories": {},
+            "_npmOperationalInternal": {
+                "host": "s3://npm-registry-packages",
+                "tmp": "tmp/npm-api_0.4.13_1560799058279_0.3281207316667689"
+            },
+            "_hasShrinkwrap": false
+        },
+        "1.0.0": {
+            "name": "npm-api",
+            "description": "Base class for retrieving data from the npm registry.",
+            "version": "1.0.0",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "contributors": [
+                {
+                    "name": "0xflotus",
+                    "url": "https://github.com/0xflotus"
+                },
+                {
+                    "name": "Brian Woodward",
+                    "url": "https://twitter.com/doowb"
+                },
+                {
+                    "name": "Nachman Berkowitz",
+                    "url": "https://github.com/NachmanBerkowitz"
+                }
+            ],
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "main": "index.js",
+            "engines": {
+                "node": ">=10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "devDependencies": {
+                "gulp-format-md": "^2.0.0",
+                "mocha": "^6.1.4"
+            },
+            "dependencies": {
+                "JSONStream": "^1.3.5",
+                "clone-deep": "^4.0.1",
+                "download-stats": "^0.3.4",
+                "moment": "^2.24.0",
+                "paged-request": "^2.0.1",
+                "request": "^2.88.0"
+            },
+            "gitHead": "f78ab33f8d33a4e02b7197ddc8b21eee828980c1",
+            "_id": "npm-api@1.0.0",
+            "_nodeVersion": "10.15.2",
+            "_npmVersion": "6.9.0",
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "dist": {
+                "integrity": "sha512-gtJhIhGq07g9H5sIAB9TZzTySW8MYtcYqg+e+J+5q1GmDsDLLVfyvVBL1VklzjtRsElph11GUtLBS191RDOJxQ==",
+                "shasum": "6033c283bb04ddb0185344c1ad07ed4f67c77989",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-1.0.0.tgz",
+                "fileCount": 13,
+                "unpackedSize": 30287,
+                "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdCEeICRA9TVsSAnZWagAAIYgQAKIdKWmzzGl1s3XOz6xX\naF73U0opW0NaIpQDorufGpX73EBkH95VLbUOmsQq3fAzcvyxfxBq8L6GZC02\nXfUhLaQYHwuEC4F0CttqWMBOYH+ynJAyfQ9vgWkRZ8SA3OW1HsNEkWg/wOBf\nMEXFWek5QyLWro22c/MKt5NhEpfmLDz8wNVDwWM3Obq4SpfFnQ8bgFfLxAnd\ngDPG6N+YNWItQ3URMB2n4egt9CsLGQiPYzHft6MH5cSfMh7FaauQiOxPEjCb\nYnEF2KiyXDPqdQPhO6DyrdRE/ZQiS1O5Qv/+/DOJfav2m0ZUWoLque45mXs/\npOgovrEx14YQ7YrZ6caD9JVm81Zseye5iNF/A1bhHUQ6xHvqUezsNZh4Er0s\nqoPrOIH3Z+XBX2etF2C0svbq1TFhwS1UyN6BNJGzI4JApPNBOAIk+kooSHHc\nr70tBtJx4ry/wpgAw6uuaOKnc6bq4i8BCfPKk8/LVDaBr2M2LqFiqfZ0Ggjy\nx87g8PzgWFJKGuOLymJmRtp8zioEblnTot/kZ/iaUuk0EQ7eKzYfJ6ZpQcuC\nIL5ID2wPwL4nZPpjmI1lOXMo6Eegtj7N/LxhSC81DM4pCh81p51AIN2+wncT\nVdsXymqP+KKHiE+Ncl7AEu4nfBr3mDcNNp2nOnr8Sjz9BbK1f4aTeJNYPn1e\nxHuO\r\n=58HP\r\n-----END PGP SIGNATURE-----\r\n",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEUCIQD0F85xhcpLtRtiMd93afws6dNsatG59kx4b/JK4m7V3QIgH6RXQLqKjPQLbbQLcAbG8Bwo0f2b7L1QvAm+08NQVUg="
+                    }
+                ]
+            },
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "directories": {},
+            "_npmOperationalInternal": {
+                "host": "s3://npm-registry-packages",
+                "tmp": "tmp/npm-api_1.0.0_1560823687752_0.9132519268075676"
+            },
+            "_hasShrinkwrap": false
+        },
+        "1.0.1": {
+            "name": "npm-api",
+            "description": "Node.js library for getting info from NPM’s API",
+            "version": "1.0.1",
+            "homepage": "https://github.com/doowb/npm-api",
+            "author": {
+                "name": "Brian Woodward",
+                "url": "https://github.com/doowb"
+            },
+            "contributors": [
+                {
+                    "name": "0xflotus",
+                    "url": "https://github.com/0xflotus"
+                },
+                {
+                    "name": "Brian Woodward",
+                    "url": "https://twitter.com/doowb"
+                },
+                {
+                    "name": "Nachman Berkowitz",
+                    "url": "https://github.com/NachmanBerkowitz"
+                }
+            ],
+            "repository": {
+                "type": "git",
+                "url": "git+https://github.com/doowb/npm-api.git"
+            },
+            "bugs": {
+                "url": "https://github.com/doowb/npm-api/issues"
+            },
+            "license": "MIT",
+            "main": "index.js",
+            "engines": {
+                "node": ">=10.0"
+            },
+            "scripts": {
+                "test": "mocha"
+            },
+            "keywords": [
+                "api",
+                "base",
+                "downloads",
+                "maintainer",
+                "maintainers",
+                "npm",
+                "npm-api",
+                "package",
+                "repo",
+                "repos",
+                "repositories",
+                "repository"
+            ],
+            "verb": {
+                "run": true,
+                "toc": false,
+                "layout": "default",
+                "tasks": [
+                    "readme"
+                ],
+                "plugins": [
+                    "gulp-format-md"
+                ],
+                "related": {
+                    "list": [
+                        "base",
+                        "download-stats"
+                    ]
+                },
+                "reflinks": [
+                    "verb"
+                ],
+                "lint": {
+                    "reflinks": true
+                }
+            },
+            "devDependencies": {
+                "gulp-format-md": "^2.0.0",
+                "mocha": "^6.1.4"
+            },
+            "dependencies": {
+                "clone-deep": "^4.0.1",
+                "download-stats": "^0.3.4",
+                "JSONStream": "^1.3.5",
+                "moment": "^2.24.0",
+                "node-fetch": "^2.6.0",
+                "paged-request": "^2.0.1"
+            },
+            "gitHead": "54ed79976c459b7762e7dfb99ea89a2fb6c48532",
+            "_id": "npm-api@1.0.1",
+            "_nodeVersion": "15.5.1",
+            "_npmVersion": "7.3.0",
+            "dist": {
+                "integrity": "sha512-4sITrrzEbPcr0aNV28QyOmgn6C9yKiF8k92jn4buYAK8wmA5xo1qL3II5/gT1r7wxbXBflSduZ2K3FbtOrtGkA==",
+                "shasum": "3def9b51afedca57db14ca0c970d92442d21c9c5",
+                "tarball": "https://registry.npmjs.org/npm-api/-/npm-api-1.0.1.tgz",
+                "fileCount": 14,
+                "unpackedSize": 32106,
+                "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgCFFlCRA9TVsSAnZWagAAW/QQAKBIDDi7hNN4+DRzoTFE\n1Cc5meQ0DiKYHWp89bejiqre52c+CahVcptBPHsAdAf3BWbK8okW0yl8VIDB\nu6ahQ4PcXSY4T4+qccB/knSg6/uMFthA3c7pn21rejpvFV3wnk3lfc7KPu/N\nTUOtSyfAObGWB2ke51MZXwQtB+lRyxzmeIVMzk8J0P9XsRSyK5v+A/ef5ug3\n5nEAZP+pyaZqvEYaJRDzmRqN3aotJjibvB82QH4keNPiKS25LjHrxDec7O4g\nmccbPazelU27OpUJbSIZgg68Q2ZL1ArVLq/ZdCU0CV2uanmOgjoh3+qua/Qq\nzR3CMznHgNT2COxozn9vd5bqtl49aV95KH/aN7efMya1WOahzfuFvRUQ/KVY\nr4dh9mRY4kzTKFeN85uqxBXZO2IRNuw61Q44FcuaTaxakMM3ubrhBH9pHifj\ngA6dJZ/3QdCv0OBupGh9dqu6gfHO1NYkTaAc6tj7dOXNeOGTzNpvVJcjHS+8\nzCsri7YvTisbXVcypwyACrgHgvqRG+dCGJJTO0U53Qo30nRJPsq9kWEXX3cI\nBdcGUZWBftSpDA2SET5+48Eg7tMj1+xE14J1ujZieKrniDwyFD3Lz4dIfPfo\nsO2CWFW5PUxBEb3FwrOKpwGJv2XLKwOiV7LNv88VCpYdki25WeUgj5c7UTmd\nRVqf\r\n=2NUF\r\n-----END PGP SIGNATURE-----\r\n",
+                "signatures": [
+                    {
+                        "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+                        "sig": "MEQCIG/E06v+wVVoma13cmbh7jQqEPjlfNQOUPXrkwIoputoAiB6WSDbziQz3KlpyD6DaAqiB63+1sj6AVleLlJcPoIXiw=="
+                    }
+                ]
+            },
+            "_npmUser": {
+                "name": "doowb",
+                "email": "brian.woodward@gmail.com"
+            },
+            "directories": {},
+            "maintainers": [
+                {
+                    "name": "doowb",
+                    "email": "brian.woodward@gmail.com"
+                }
+            ],
+            "_npmOperationalInternal": {
+                "host": "s3://npm-registry-packages",
+                "tmp": "tmp/npm-api_1.0.1_1611157860780_0.724473932050784"
+            },
+            "_hasShrinkwrap": false
+        }
+    },
+    "readme": "# npm-api [![NPM version](https://img.shields.io/npm/v/npm-api.svg?style=flat)](https://www.npmjs.com/package/npm-api) [![NPM monthly downloads](https://img.shields.io/npm/dm/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api) [![NPM total downloads](https://img.shields.io/npm/dt/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api) [![Linux Build Status](https://img.shields.io/travis/doowb/npm-api.svg?style=flat&label=Travis)](https://travis-ci.org/doowb/npm-api)\n\n> Node.js library for getting info from NPM’s API\n\nPlease consider following this project's author, [Brian Woodward](https://github.com/doowb), and consider starring the project to show your :heart: and support.\n\n## Install\n\nInstall with [npm](https://www.npmjs.com/):\n\n```sh\n$ npm install --save npm-api\n```\n\n## Usage\n\n```js\nvar NpmApi = require('npm-api');\n```\n\n## API\n\n### [NpmApi](index.js#L21)\n\nNpmApi constructor. Create an instance to work with maintainer and repository information.\n\n**Example**\n\n```js\nlet npm = new NpmApi();\n```\n\n### [.view](index.js#L58)\n\nCreate a new instance of `View` or get an existing instance to work with npm couchdb views.\n\n**Params**\n\n* `name` **{String}**: Name of the couchdb view to work with.\n* `returns` **{Object}** `View`: instance\n\n**Example**\n\n```js\nvar view = npm.view('byUser');\n```\n\n### [.list](index.js#L84)\n\nCreate a new instance of `List` or get an existing instance to work with npm couchdb list.\n\n**Params**\n\n* `name` **{String}**: Name of the couchdb list to work with.\n* `view` **{String|Object}**: Name or instance of a `view` to work with.\n* `returns` **{Object}** `List`: instance\n\n**Example**\n\n```js\nvar list = npm.list('sortCount', 'byUser');\n```\n\n### [.repo](index.js#L118)\n\nCreate an instance of a `repo` to work with.\n\n**Params**\n\n* `name` **{String}**: Name of the repo as it's published to npm.\n* `returns` **{Object}**: Instance of a `Repo` model to work with.\n\n**Example**\n\n```js\nvar repo =  npm.repo('micromatch');\n```\n\n### [.maintainer](index.js#L142)\n\nCreate an instance of a `maintainer` to work with.\n\n**Params**\n\n* `name` **{String}**: Npm username of the maintainer.\n* `returns` **{Object}**: Instance of a `Maintainer` model to work with.\n\n**Example**\n\n```js\nvar maintainer =  npm.maintainer('doowb');\n```\n\n## Models\n\n### [BaseModel](lib/models/base.js#L17)\n\nBase model to include common plugins.\n\n**Params**\n\n* `store` **{Object}**: Cache store instance to use.\n\n### [Maintainer](lib/models/maintainer.js#L19)\n\nMaintainer constructor. Create an instance of an npm maintainer by maintainer name.\n\n**Params**\n\n* `name` **{String}**: Name of the npm maintainer to get information about.\n\n**Example**\n\n```js\nconst maintainer = new Maintainer('doowb');\n```\n\n### [.repos](lib/models/maintainer.js#L43)\n\nGet the repositories owned by this maintainer.\n\n* `returns` **{Promise}**: Returns array of repository names when promise resolves.\n\n**Example**\n\n```js\nmaintainer.repos()\n  .then(function(repos) {\n    console.log(repos);\n  }, function(err) {\n    console.error(err);\n  });\n```\n\n### [Repo](lib/models/repo.js#L18)\n\nRepo constructor. Create an instance of an npm repo by repo name.\n\n**Params**\n\n* `name` **{String}**: Name of the npm repo to get information about.\n\n**Example**\n\n```js\nconst repo = new Repo('micromatch');\n```\n\n### [.package](lib/models/repo.js#L41)\n\nGet the repo's published package.json.\n\n* `returns` **{Promise}**: Returns the package.json object when promise resolves.\n\n**Example**\n\n```js\nrepo.package()\n  .then(function(pkg) {\n    console.log(pkg);\n  }, function(err) {\n    console.error(err);\n  });\n```\n\n### [.version](lib/models/repo.js#L73)\n\nGet the repo's published package.json value for the specified version.\n\n**Params**\n\n* `version` **{String}**: Specific version to retrieve.\n* `returns` **{Promise}**: Returns the package.json object for the specified version when promise resolves.\n\n**Example**\n\n```js\nrepo.version('0.2.0')\n  .then(function(pkg) {\n    console.log(pkg);\n  }, function(err) {\n    console.error(err);\n  });\n```\n\n### [.dependencies](lib/models/repo.js#L101)\n\nGet the repo's dependencies for the specified version.\n\n**Params**\n\n* `version` **{String}**: Specific version to retrieve. Defaults to `latest`.\n* `returns` **{Promise}**: Returns the dependencies object for the specified version when promise resolves.\n\n**Example**\n\n```js\nrepo.dependencies()\n  .then(function(dependencies) {\n    console.log(dependencies);\n  }, function(err) {\n    console.error(err);\n  });\n```\n\n### [.devDependencies](lib/models/repo.js#L122)\n\nGet the repo's devDependencies for the specified version.\n\n**Params**\n\n* `version` **{String}**: Specific version to retrieve. Defaults to `latest`.\n* `returns` **{Promise}**: Returns the devDependencies object for the specified version when promise resolves.\n\n**Example**\n\n```js\nrepo.devDependencies()\n  .then(function(devDependencies) {\n    console.log(devDependencies);\n  }, function(err) {\n    console.error(err);\n  });\n```\n\n### [.prop](lib/models/repo.js#L144)\n\nGet the specified property from the repo's package.json for the specified version.\n\n**Params**\n\n* `prop` **{String}**: Name of the property to get.\n* `version` **{String}**: Specific version to retrieve. Defaults to `latest`.\n* `returns` **{Promise}**: Returns the property for the specified version when promise resolves.\n\n**Example**\n\n```js\nrepo.prop('author')\n  .then(function(author) {\n    console.log(author);\n  }, function(err) {\n    console.error(err);\n  });\n```\n\n## Registry queries\n\n### [View](lib/view.js#L21)\n\nView constructor. Create an instance of a view associated with a couchdb view in the npm registry.\n\n**Params**\n\n* `name` **{String}**: Name of couchdb view to use.\n* `returns` **{Object}**: instance of `View`\n\n**Example**\n\n```js\nconst view = new View('dependedUpon');\n```\n\n### [.query](lib/view.js#L44)\n\nQuery the couchdb view with the provided parameters.\n\n**Params**\n\n* `params` **{Object}**: URL query parameters to pass along to the couchdb view.\n* `returns` **{Promise}**: Results of the query when promise is resolved.\n\n**Example**\n\n```js\nlet results = await view.query({\n  group_level: 2,\n  startkey: JSON.stringify(['micromatch']),\n  endkey: JSON.stringify(['micromatch', {}])\n});\n```\n\n### [.stream](lib/view.js#L89)\n\nQuery the couchdb view with the provided parameters and return a stream of results.\n\n**Params**\n\n* `params` **{Object}**: URL query parameters to pass along to the couchdb view.\n* `returns` **{Stream}**: Streaming results of the query.\n\n**Example**\n\n```js\nview.stream({\n  group_level: 2,\n  startkey: JSON.stringify(['micromatch']),\n  endkey: JSON.stringify(['micromatch', {}])\n})\n.on('data', (data) => {\n  console.log(data);\n});\n```\n\n### [.url](lib/view.js#L109)\n\nBuild a formatted url with the provided parameters.\n\n**Params**\n\n* `query` **{Object}**: URL query parameters.\n* `returns` **{String}**: formatted url string\n\n### [List](lib/list.js#L22)\n\nList constructor. Create an instance of a list associated with a couchdb list in the npm registry.\n\n**Params**\n\n* `name` **{String}**: Name of couchdb list to use.\n* `view` **{Object}**: Instance of a View to use with the list.\n* `returns` **{Object}**: instance of `List`\n\n**Example**\n\n```js\nlet list = new List('dependedUpon', view);\n```\n\n### [.query](lib/list.js#L42)\n\nQuery the couchdb list with the provided parameters.\n\n**Params**\n\n* `params` **{Object}**: URL query parameters to pass along to the couchdb list.\n* `returns` **{Promise}**: Results of the query when promise is resolved.\n\n**Example**\n\n```js\nlet results = await list.query({ key: JSON.stringify(['micromatch']) })\n```\n\n### [.url](lib/list.js#L59)\n\nBuild a formatted url with the provided parameters.\n\n**Params**\n\n* `query` **{Object}**: URL query parameters.\n* `returns` **{String}**: formatted url string\n\n## About\n\n<details>\n<summary><strong>Contributing</strong></summary>\n\nPull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).\n\nPlease read the [contributing guide](.github/contributing.md) for advice on opening issues, pull requests, and coding standards.\n\n</details>\n\n<details>\n<summary><strong>Running Tests</strong></summary>\n\nRunning and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:\n\n```sh\n$ npm install && npm test\n```\n\n</details>\n\n<details>\n<summary><strong>Building docs</strong></summary>\n\n_(This project's readme.md is generated by [verb](https://github.com/verbose/verb-generate-readme), please don't edit the readme directly. Any changes to the readme must be made in the [.verb.md](.verb.md) readme template.)_\n\nTo generate the readme, run the following command:\n\n```sh\n$ npm install -g verbose/verb#dev verb-generate-readme && verb\n```\n\n</details>\n\n### Related projects\n\nYou might also be interested in these projects:\n\n* [base](https://www.npmjs.com/package/base): Framework for rapidly creating high quality, server-side node.js applications, using plugins like building blocks | [homepage](https://github.com/node-base/base \"Framework for rapidly creating high quality, server-side node.js applications, using plugins like building blocks\")\n* [download-stats](https://www.npmjs.com/package/download-stats): Get and calculate npm download stats for npm modules. | [homepage](https://github.com/doowb/download-stats \"Get and calculate npm download stats for npm modules.\")\n\n### Contributors\n\n| **Commits** | **Contributor** |  \n| --- | --- |  \n| 115 | [doowb](https://github.com/doowb) |  \n| 1   | [0xflotus](https://github.com/0xflotus) |  \n| 1   | [Hypnosphi](https://github.com/Hypnosphi) |  \n| 1   | [NachmanBerkowitz](https://github.com/NachmanBerkowitz) |  \n\n### Author\n\n**Brian Woodward**\n\n* [GitHub Profile](https://github.com/doowb)\n* [Twitter Profile](https://twitter.com/doowb)\n* [LinkedIn Profile](https://linkedin.com/in/woodwardbrian)\n\n### License\n\nCopyright © 2021, [Brian Woodward](https://github.com/doowb).\nReleased under the [MIT License](LICENSE).\n\n***\n\n_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on January 20, 2021._",
+    "maintainers": [
+        {
+            "name": "doowb",
+            "email": "brian.woodward@gmail.com"
+        }
+    ],
+    "time": {
+        "modified": "2022-06-22T06:56:10.727Z",
+        "created": "2016-03-23T14:15:38.913Z",
+        "0.4.0": "2016-03-23T14:15:38.913Z",
+        "0.4.1": "2016-03-23T14:16:59.574Z",
+        "0.4.2": "2016-03-23T21:12:47.014Z",
+        "0.4.3": "2016-03-23T22:38:16.305Z",
+        "0.4.4": "2016-03-24T13:48:53.695Z",
+        "0.4.5": "2016-03-29T13:37:40.511Z",
+        "0.4.6": "2016-03-29T13:41:17.287Z",
+        "0.4.7": "2016-09-28T17:52:12.633Z",
+        "0.4.8": "2016-10-03T03:54:34.927Z",
+        "0.4.9": "2016-11-14T01:41:48.226Z",
+        "0.4.10": "2017-12-27T18:10:53.434Z",
+        "0.4.11": "2018-03-06T23:47:24.098Z",
+        "0.4.12": "2018-06-24T19:51:20.017Z",
+        "0.4.13": "2019-06-17T19:17:38.472Z",
+        "1.0.0": "2019-06-18T02:08:07.929Z",
+        "1.0.1": "2021-01-20T15:51:01.044Z"
+    },
+    "homepage": "https://github.com/doowb/npm-api",
+    "keywords": [
+        "api",
+        "base",
+        "downloads",
+        "maintainer",
+        "maintainers",
+        "npm",
+        "npm-api",
+        "package",
+        "repo",
+        "repos",
+        "repositories",
+        "repository"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/doowb/npm-api.git"
+    },
+    "author": {
+        "name": "Brian Woodward",
+        "url": "https://github.com/doowb"
+    },
+    "bugs": {
+        "url": "https://github.com/doowb/npm-api/issues"
+    },
+    "license": "MIT",
+    "readmeFilename": "README.md",
+    "contributors": [
+        {
+            "name": "0xflotus",
+            "url": "https://github.com/0xflotus"
+        },
+        {
+            "name": "Brian Woodward",
+            "url": "https://twitter.com/doowb"
+        },
+        {
+            "name": "Nachman Berkowitz",
+            "url": "https://github.com/NachmanBerkowitz"
+        }
+    ],
+    "users": {
+        "paoloo1995": true
+    }
+}
