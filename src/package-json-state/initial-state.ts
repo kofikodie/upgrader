@@ -3,6 +3,7 @@ import {StateInterface} from './state.interface'
 import * as fs from 'node:fs/promises'
 import UpdatedState from './update-state'
 import {StateResponse} from './types'
+import {ERROR, UPDATED} from '../common/types'
 
 export default class InitialState implements StateInterface {
     private packageJsonFile: PackageJsonFile;
@@ -18,7 +19,7 @@ export default class InitialState implements StateInterface {
             await fs.writeFile(this.packageJsonFile.filePath, JSON.stringify(packageJson, null, 4), 'utf8')
         } catch (error) {
             return {
-                state: 'ERROR',
+                status: ERROR,
                 context: `error while updating library ${libraryName} to version ${newVersion}. Error: ${error}`,
             }
         }
@@ -26,7 +27,7 @@ export default class InitialState implements StateInterface {
         this.packageJsonFile.state = new UpdatedState(this.packageJsonFile)
 
         return {
-            state: 'UPDATED',
+            status: UPDATED,
             context: `library ${libraryName} updated to version ${newVersion}`,
         }
     }

@@ -19,7 +19,7 @@ describe('PackageJsonFile', () => {
         const lnInit = await packageJsonFile.updateLibraryVersion('library-name', '2.0.0')
         const packageJson = JSON.parse(await fs.readFile(packageJsonFilePath, 'utf8'))
 
-        expect(lnInit.state).to.equal('UPDATED')
+        expect(lnInit.status).to.equal('UPDATED')
         expect(packageJson.dependencies['library-name']).to.equal('2.0.0')
     })
 
@@ -27,7 +27,7 @@ describe('PackageJsonFile', () => {
         const lnInit = await packageJsonFile.updateLibraryVersion('library-name', '2.0.0')
         const lnUpdated = await packageJsonFile.updateLibraryVersion('library-name', '2.0.0')
 
-        expect(lnInit.state).to.equal('UPDATED')
-        expect(lnUpdated.state).to.equal('ALREADY_UPDATED')
+        expect(lnInit.status).to.equal('UPDATED')
+        expect(lnUpdated.status).to.equal('ALREADY_UPDATED')
     })
 })

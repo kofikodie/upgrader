@@ -1,4 +1,3 @@
-export type StateResponse = {
-    state: 'UPDATED' | 'ERROR' | 'ALREADY_UPDATED';
-    context: string;
-}
+import {ResponseType} from '../common/types'
+
+export type StateResponse = ResponseType
