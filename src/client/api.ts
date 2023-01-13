@@ -1,7 +1,8 @@
 import axios from 'axios'
+import {ERROR} from '../common/types'
 import {NpmClientInterface} from './api.interface'
 import {config} from './config'
-import {PackageInterface} from './types'
+import {NpmClientErrorResponse, NpmClientResponse, PackageInterface, SUCCESS} from './types'
 
 const npmClient = axios.create({
     baseURL: config.registry,
@@ -16,39 +17,63 @@ const errorHandler = <T>(error: T): void => {
 }
 
 npmClient.interceptors.response.use(successHandler, errorHandler)
+
 export default class NpmClient implements NpmClientInterface {
-    async checkPackageVersion(packageName: string, packageVersion: string): Promise<boolean> {
+    async checkPackageVersion(packageName: string, packageVersion: string): Promise<NpmClientResponse> {
         try {
             const response = await npmClient.get(`/${packageName}`)
             const versions = Object.keys(response.data.versions)
 
-            return versions.includes(packageVersion)
+            if (versions.includes(packageVersion) === false) {
+                return {
+                    status: ERROR,
+                    context: `Package ${packageName} does not have version ${packageVersion}`,
+                }
+            }
+
+            return {
+                status: SUCCESS,
+                context: `Package ${packageName} has version ${packageVersion}`,
+            }
         } catch (error) {
-            console.log(error)
-            return false
+            return {
+                status: ERROR,
+                context: `Error fetching package ${packageName} from npm. Error: ${error}`,
+            }
         }
     }
 
-    async checkPackageExists(packageName: string): Promise<boolean> {
+    async checkPackageExists(packageName: string): Promise<NpmClientResponse> {
         try {
             const response = await npmClient.get(`/${packageName}`)
+            if (response.status !== 200) {
+                return {
+                    status: ERROR,
+                    context: `Package ${packageName} does not exist`,
+                }
+            }
 
-            return response.status === 200
+            return {
+                status: SUCCESS,
+                context: `Package ${packageName} exists`,
+            }
         } catch (error) {
-            console.log(error)
-            return false
+            return {
+                status: ERROR,
+                context: `Package ${packageName} does not exist. Error: ${error}`,
+            }
         }
     }
 
-    async getPackageInfo(packageName: string): Promise<PackageInterface | {errorMessage: string}> {
+    async getPackageInfo(packageName: string): Promise<PackageInterface | NpmClientErrorResponse> {
         try {
             const response = await npmClient.get(`/${packageName}`)
 
             return response.data
         } catch (error) {
-            console.log(error)
             return {
-                errorMessage: 'Package not found',
+                status: ERROR,
+                context: `Error fetching package ${packageName} from npm. Error: ${error}`,
             }
         }
     }

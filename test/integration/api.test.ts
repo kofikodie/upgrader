@@ -4,6 +4,8 @@ import NpmClient from '../../src/client/api'
 import {config} from '../../src/client/config'
 import libraryName from '../../test/library-name.json'
 import libraryVersions from '../../test/library-versions.json'
+import {SUCCESS} from '../../src/client/types'
+import {ERROR} from '../../src/common/types'
 
 describe('Test npm apis', () => {
     const packageName = 'libary-name'
@@ -49,7 +51,7 @@ describe('Test npm apis', () => {
         const npm = new NpmClient()
         const exists = await npm.checkPackageVersion(packageName, packageVersion)
 
-        expect(exists).to.be.true
+        expect(exists.status).to.equal(SUCCESS)
     })
 
     it('should return false if a package version does not exists', async () => {
@@ -60,7 +62,7 @@ describe('Test npm apis', () => {
         const npm = new NpmClient()
         const exists = await npm.checkPackageVersion(packageName, packageVersionInvalid)
 
-        expect(exists).to.be.false
+        expect(exists.status).to.equal(ERROR)
     })
 
     it('should return true if a package exists', async () => {
@@ -71,7 +73,7 @@ describe('Test npm apis', () => {
         const npm = new NpmClient()
         const exists = await npm.checkPackageExists(packageName)
 
-        expect(exists).to.be.true
+        expect(exists.status).to.equal(SUCCESS)
     })
 
     it('should return false if a package does not exists', async () => {
@@ -82,6 +84,6 @@ describe('Test npm apis', () => {
         const npm = new NpmClient()
         const exists = await npm.checkPackageExists(packageNameInvalid)
 
-        expect(exists).to.be.false
+        expect(exists.status).to.equal(ERROR)
     })
 })

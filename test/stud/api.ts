@@ -1,37 +1,63 @@
 import {NpmClientInterface} from '../../src/client/api.interface'
-import {PackageInterface} from '../../src/client/types'
+import {NpmClientErrorResponse, NpmClientResponse, PackageInterface, SUCCESS} from '../../src/client/types'
+import {ERROR} from '../../src/common/types'
 import npmApi from '../../test/library-name.json'
 
 export default class NpmClient implements NpmClientInterface {
-    getPackageInfo(packageName: string): Promise<PackageInterface | { errorMessage: string; }> {
-        if (packageName === 'npm-api') {
+    checkPackageVersion(packageName: string, packageVersion: string): Promise<NpmClientResponse> {
+        if (packageVersion === '1.0.0') {
+            return Promise.resolve(
+                {
+                    status: SUCCESS,
+                    context: `Package ${packageName} has version ${packageVersion}`,
+                },
+            )
+        }
+
+        return Promise.resolve(
+            {
+                status: ERROR,
+                context: `Package ${packageName} does not have version ${packageVersion}`,
+            },
+        )
+    }
+
+    checkPackageExists(packageName: string): Promise<NpmClientResponse> {
+        if (packageName === 'library-name') {
+            return Promise.resolve(
+                {
+                    status: SUCCESS,
+                    context: `Package ${packageName} exists`,
+                },
+            )
+        }
+
+        return Promise.resolve(
+            {
+                status: ERROR,
+                context: `Package ${packageName} does not exist`,
+            },
+        )
+    }
+
+    getPackageInfo(packageName: string): Promise<PackageInterface | NpmClientErrorResponse> {
+        if (packageName === 'library-name') {
             return Promise.resolve(npmApi)
         }
 
-        return Promise.resolve({errorMessage: 'Package not found'})
+        return Promise.resolve(
+            {
+                status: ERROR,
+                context: `Error fetching package ${packageName} from npm`,
+            },
+        )
     }
 
     getPackageStableUpgradeVersions(packageInfo: PackageInterface, packageVersion: string): Promise<string[]> {
-        if (packageInfo.name === 'npm-api' && packageVersion === '0.4.13') {
-            return Promise.resolve(['0.4.14', '0.4.15'])
+        if (packageInfo.name === 'library-name' && packageVersion === '1.0.0') {
+            return Promise.resolve(['2.0.0', '3.0.0'])
         }
 
         return Promise.resolve([])
-    }
-
-    checkPackageVersion(packageName: string, packageVersion: string): Promise<boolean> {
-        if (packageName === 'npm-api' && packageVersion === '0.4.13') {
-            return Promise.resolve(true)
-        }
-
-        return Promise.resolve(false)
-    }
-
-    checkPackageExists(packageName: string): Promise<boolean> {
-        if (packageName === 'npm-api') {
-            return Promise.resolve(true)
-        }
-
-        return Promise.resolve(false)
     }
 }
