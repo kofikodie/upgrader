@@ -1,5 +1,6 @@
 import InitialState from './initial-state'
 import {StateInterface} from './state.interface'
+import {StateResponse} from './types'
 
 export default class PackageJsonFile {
     public state: StateInterface;
@@ -8,7 +9,7 @@ export default class PackageJsonFile {
         this.state = new InitialState(this)
     }
 
-    updateLibraryVersion(libraryName: string, newVersion: string): void {
-        this.state.updateLibraryVersion(libraryName, newVersion)
+    updateLibraryVersion(libraryName: string, newVersion: string): Promise<StateResponse> {
+        return this.state.updateLibraryVersion(libraryName, newVersion)
     }
 }

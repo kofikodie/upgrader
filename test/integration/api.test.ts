@@ -2,20 +2,20 @@ import nock from 'nock'
 import {expect} from 'chai'
 import NpmClient from '../../src/client/api'
 import {config} from '../../src/client/config'
-import npmApi from './npm-api.json'
-import npmApiVersions from './npm-api-versions.json'
+import libraryName from '../../test/library-name.json'
+import libraryVersions from '../../test/library-versions.json'
 
 describe('Test npm apis', () => {
-    const packageName = 'npm-api'
+    const packageName = 'libary-name'
     const packageVersion = '0.4.13'
 
-    const packageNameInvalid = 'npm-api-invalid'
+    const packageNameInvalid = 'invalid-libary-name'
     const packageVersionInvalid = '1.4.14'
 
     it('should return all info regarding to an npm package given a npm package name', async () => {
         nock(config.registry)
             .get(`/${packageName}`)
-            .reply(200, npmApi)
+            .reply(200, libraryName)
 
         const npm = new NpmClient()
         const response = await npm.getPackageInfo(packageName)
@@ -33,18 +33,18 @@ describe('Test npm apis', () => {
     it('should return all the stable upgraded version of an package given the package name', async () => {
         nock(config.registry)
             .get(`/${packageName}`)
-            .reply(200, npmApi)
+            .reply(200, libraryName)
 
         const npm = new NpmClient()
-        const versions = await npm.getPackageStableUpgradeVersions(npmApi, packageVersion)
+        const versions = await npm.getPackageStableUpgradeVersions(libraryName, packageVersion)
 
-        expect(versions).to.eql(npmApiVersions.versions)
+        expect(versions).to.eql(libraryVersions.versions)
     })
 
     it('should return true if a package version exists', async () => {
         nock(config.registry)
             .get(`/${packageName}`)
-            .reply(200, npmApi)
+            .reply(200, libraryName)
 
         const npm = new NpmClient()
         const exists = await npm.checkPackageVersion(packageName, packageVersion)
@@ -66,7 +66,7 @@ describe('Test npm apis', () => {
     it('should return true if a package exists', async () => {
         nock(config.registry)
             .get(`/${packageName}`)
-            .reply(200, npmApi)
+            .reply(200, libraryName)
 
         const npm = new NpmClient()
         const exists = await npm.checkPackageExists(packageName)

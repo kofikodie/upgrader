@@ -1,6 +1,6 @@
 import {NpmClientInterface} from '../../src/client/api.interface'
 import {PackageInterface} from '../../src/client/types'
-import npmApi from '../integration/npm-api.json'
+import npmApi from '../../test/library-name.json'
 
 export default class NpmClient implements NpmClientInterface {
     getPackageInfo(packageName: string): Promise<PackageInterface | { errorMessage: string; }> {

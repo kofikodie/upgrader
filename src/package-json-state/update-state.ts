@@ -1,5 +1,6 @@
 import PackageJsonFile from './package-json-file'
 import {StateInterface} from './state.interface'
+import {StateResponse} from './types'
 
 export default class UpdatedState implements StateInterface {
     private packageJsonFile: PackageJsonFile;
@@ -8,7 +9,10 @@ export default class UpdatedState implements StateInterface {
         this.packageJsonFile = packageJsonFile
     }
 
-    updateLibraryVersion(libraryName: string, _newVersion: string): void {
-        console.log(`library ${libraryName} already updated`)
+    async updateLibraryVersion(libraryName: string, _newVersion: string): Promise<StateResponse> {
+        return {
+            state: 'ALREADY_UPDATED',
+            context: `library ${libraryName} already updated`,
+        }
     }
 }

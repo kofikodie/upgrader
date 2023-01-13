@@ -1,5 +1,5 @@
 import {NpmClientInterface} from './client/api.interface'
-import PackageJsonFile from './state/package-json-file'
+import PackageJsonFile from './package-json-state/package-json-file'
 
 export default class Upgrader {
     private npmClient: NpmClientInterface
