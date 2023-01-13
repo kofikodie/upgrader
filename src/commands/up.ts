@@ -1,11 +1,11 @@
 import {Command, Flags} from '@oclif/core'
 
 export default class Up extends Command {
-    static description = 'Upgrade a package to a new version'
+    static description = 'Upgrade a package to a specific version'
 
     static examples = [
-        `$ upgrader up
-    hello friend from oclif! (./src/commands/hello/index.ts)
+        `$ upgrader up react -v 17.0.2
+    TO BE IMPLEMENT! (./src/commands/up.ts)
     `,
     ]
 

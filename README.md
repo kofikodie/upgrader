@@ -29,50 +29,33 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`upgrader up`](#upgrader-hello-person)
-* [`upgrader hello world`](#upgrader-hello-world)
+* [`upgrader up [PACKAGE_NAME] -v <version>`](#upgrader-up-packagename--v-version)
 * [`upgrader help [COMMAND]`](#upgrader-help-command)
 
 
-## `upgrader hello PERSON`
+## `upgrader up [PACKAGE_NAME] -v <version>`
 
-Say hello
+Upgrade a package to a specific version
 
 ```
 USAGE
-  $ upgrader hello [PERSON] -f <value>
+  $ upgrader up [PACKAGE_NAME] -v <version>
 
 ARGUMENTS
-  PERSON  Person to say hello to
+  PACKAGE_NAME  package name
 
 FLAGS
-  -f, --from=<value>  (required) Who is saying hello
+  -v, --version=<value>  version to upgrade to
 
 DESCRIPTION
-  Say hello
+  Upgrade a package to a new version
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ upgrader up react -v 17.0.2
+  TO BE IMPLEMENT! (./src/commands/up.ts)
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/kofikodie/upgrader/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `upgrader hello world`
-
-Say hello world
-
-```
-USAGE
-  $ upgrader hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ upgrader hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+_See code: [dist/commands/up.ts](https://github.com/kofikodie/upgrader/blob/v0.0.0/src/commands/up.ts)_
 
 ## `upgrader help [COMMAND]`
 
