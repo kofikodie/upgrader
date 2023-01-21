@@ -2,7 +2,7 @@ import * as fs from 'node:fs/promises'
 import VersionReader from '../src/version-reader'
 import {expect} from 'chai'
 
-describe('Upgrader', async () => {
+describe('Version Reader', async () => {
     const packageJsonFilePath = './test/package-test.json'
 
     beforeEach(async () => {
@@ -17,6 +17,14 @@ describe('Upgrader', async () => {
         const vReader = new VersionReader(packageJsonFilePath)
         const res = await vReader.read('library-name')
 
-        expect(res).to.equal('1.0.0')
+        expect(res.body).to.equal('1.0.0')
+    })
+
+    it('should return an error if the package is not found', async () => {
+        const vReader = new VersionReader(packageJsonFilePath)
+        const res = await vReader.read('library-name-invalid')
+
+        expect(res.status).to.equal('ERROR')
+        expect(res.body).to.equal('Library library-name-invalid not found')
     })
 })

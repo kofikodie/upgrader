@@ -8,13 +8,10 @@ export default class Up extends Command {
     static description = 'Upgrade a package to a specific version'
 
     static examples = [
-        `$ upgrader up react -v 17.0.2
-    TO BE IMPLEMENT! (./src/commands/up.ts)
-    `,
+        '$ upgrader up react -v 17.0.2',
     ]
 
     static flags = {
-        // flag with a value (-v, --version=VALUE)
         version: Flags.string({char: 'v', aliases: ['version'], description: 'version to upgrade to'}),
     }
 
@@ -34,7 +31,12 @@ export default class Up extends Command {
         this.log(`Upgrading ${args.package} to version ${flags.version}`)
 
         const currVersion = await new VersionReader(packageJsonFilePath).read(args.package)
-        const currVersionParsed = currVersion.replace(/[^\d.]/g, '')
+        if (currVersion.status === 'ERROR') {
+            this.log(`Aborting.. ${currVersion.body}`)
+            return
+        }
+
+        const currVersionParsed = currVersion.body.replace(/[^\d.]/g, '')
         this.log(`Current version is ${currVersionParsed}`)
         if (currVersionParsed === flags.version) {
             this.log(`Already on version ${flags.version}`)
