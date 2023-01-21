@@ -10,19 +10,10 @@ on:
         description: tag that needs to publish
         type: string
         required: true
-    secrets:
-      NPM_TOKEN:
-        description: 'NPM Token'
-        required: true
-      GITHUB_TOKEN:
-        description: 'GitHub Token'
-        required: true
 jobs:
   npm:
     uses: oclif/github-workflows/.github/workflows/npmPublish.yml@main
     with:
       tag: latest
       githubTag: ${{ github.event.release.tag_name || inputs.tag }}
-    secrets:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    secrets: inherit
