@@ -1,6 +1,6 @@
 {
   "name": "upgrader",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A tool to upgrade your js/node libraries",
   "author": "kody @kofikodie",
   "bin": {
