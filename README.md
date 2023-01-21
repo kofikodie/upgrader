@@ -92,3 +92,4 @@ Here below are the features that are planned for the next releases of the projec
       * [ ] Add support for upgrading packages to the latest version of a specific major version
       * [ ] Add support for upgrading packages to the latest version of a specific minor version
       * [ ] Add support to manage multiple package* files
+      * [ ] Add support for development dependencies and peer dependencies 
