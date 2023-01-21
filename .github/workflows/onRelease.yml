@@ -10,6 +10,13 @@ on:
         description: tag that needs to publish
         type: string
         required: true
+    secrets:
+      NPM_TOKEN:
+        description: 'NPM Token'
+        required: true
+      GITHUB_TOKEN:
+        description: 'GitHub Token'
+        required: true
 jobs:
   npm:
     uses: oclif/github-workflows/.github/workflows/npmPublish.yml@main
