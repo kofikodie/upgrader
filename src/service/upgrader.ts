@@ -1,14 +1,17 @@
-import {NpmClientInterface} from './client/api.interface'
-import {ALREADY_UPDATED, ERROR, ResponseType} from './common/types'
-import PackageJsonFile from './package-json-state/package-json-file'
+import {NpmClientInterface} from '../client/api.interface'
+import {CommandInterface} from '../commands/locals/local-cmd.interface'
+import {ERROR, ResponseType} from '../common/types'
 
 export default class Upgrader {
     private npmClient: NpmClientInterface
-    private packageJsonFile: PackageJsonFile
+    private installCmd: CommandInterface
 
-    constructor(npmClient: NpmClientInterface, packageJsonFile: PackageJsonFile) {
+    constructor(
+        npmClient: NpmClientInterface,
+        installCmd: CommandInterface,
+    ) {
         this.npmClient = npmClient
-        this.packageJsonFile = packageJsonFile
+        this.installCmd = installCmd
     }
 
     async updateSinglePackage(packageName: string, packageVersion: string): Promise<ResponseType> {
@@ -29,24 +32,20 @@ export default class Upgrader {
             }
         }
 
-        const pkjFile = await this.packageJsonFile.updateLibraryVersion(packageName, packageVersion)
+        // const pkjFile = await this.packageJsonFile.updateLibraryVersion(packageName, packageVersion)
+        const cmdResult = this.installCmd.execute()
 
-        if (pkjFile.status === ERROR) {
-            return {
-                status: pkjFile.status,
-                context: `Error updating ${packageName} to version ${packageVersion}`,
-            }
-        }
+        if (cmdResult.status === ERROR) {
+            this.installCmd.undo()
 
-        if (pkjFile.status === ALREADY_UPDATED) {
             return {
-                status: pkjFile.status,
-                context: `Already updated ${packageName} to version ${packageVersion}`,
+                status: cmdResult.status,
+                context: `Error updating ${packageName} to version ${packageVersion}. Error: ${cmdResult.context}. Rollback successful`,
             }
         }
 
         return {
-            status: pkjFile.status,
+            status: cmdResult.status,
             context: `Updated ${packageName} to version ${packageVersion}`,
         }
     }

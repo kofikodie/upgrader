@@ -1,4 +1,6 @@
-export interface Command {
-    execute(): void;
-    undo(): void;
+import {ResponseType} from '../../common/types'
+
+export interface CommandInterface {
+    execute(): ResponseType;
+    undo(): ResponseType;
 }
