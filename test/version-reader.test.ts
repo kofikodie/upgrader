@@ -2,7 +2,7 @@ import * as fs from 'node:fs/promises'
 import VersionReader from '../src/version-reader'
 import {expect} from 'chai'
 
-describe('Upgrader', async () => {
+describe('Version Reader', async () => {
     const packageJsonFilePath = './test/package-test.json'
 
     beforeEach(async () => {

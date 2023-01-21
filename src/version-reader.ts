@@ -9,7 +9,7 @@ export default class VersionReader {
     async read(library: string): Promise<{status: 'ERROR' | 'SUCCESS', body: string}> {
         const packageJson = JSON.parse(await fs.readFile(this.filePath, 'utf8'))
         const prolib =  packageJson.dependencies[library]
-        const devLib = packageJson.devDependencies[library]
+        const devLib = packageJson.devDependencies?.[library]
         const peerLib = packageJson.peerDependencies?.[library]
 
         if (!prolib && !devLib && !peerLib) {
