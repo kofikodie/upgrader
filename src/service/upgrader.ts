@@ -32,7 +32,6 @@ export default class Upgrader {
             }
         }
 
-        // const pkjFile = await this.packageJsonFile.updateLibraryVersion(packageName, packageVersion)
         const cmdResult = this.installCmd.execute()
 
         if (cmdResult.status === ERROR) {
