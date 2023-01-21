@@ -1,4 +1,8 @@
 import {Command, Flags} from '@oclif/core'
+import NpmClient from '../client/api'
+import Upgrader from '../service/upgrader'
+import VersionReader from '../version-reader'
+import InstallLibraryVersionCommand from './locals/install'
 
 export default class Up extends Command {
     static description = 'Upgrade a package to a specific version'
@@ -18,13 +22,39 @@ export default class Up extends Command {
 
     public async run(): Promise<void> {
         const {args, flags} = await this.parse(Up)
+        const packageJsonFilePath = './package.json'
 
-        const name = flags.name
         this.log(`Searching for ${args.package}...`)
-        /* const name = flags.name ?? 'world'
-        this.log(`hello ${name} from /app/src/commands/up.ts`)
-        if (args.file && flags.force) {
-            this.log(`you input --force and --file: ${args.file}`)
-        } */
+
+        if (!flags.version) {
+            this.log('Please specify a version to upgrade to')
+            return
+        }
+
+        this.log(`Upgrading ${args.package} to version ${flags.version}`)
+
+        const currVersion = await new VersionReader(packageJsonFilePath).read(args.package)
+        const currVersionParsed = currVersion.replace(/[^\d.]/g, '')
+        this.log(`Current version is ${currVersionParsed}`)
+        if (currVersionParsed === flags.version) {
+            this.log(`Already on version ${flags.version}`)
+            return
+        }
+
+        const upgrader = new Upgrader(new NpmClient(), new InstallLibraryVersionCommand(
+            packageJsonFilePath,
+            args.package,
+            flags.version,
+            currVersionParsed,
+        ))
+
+        const res = await upgrader.updateSinglePackage(args.package, flags.version)
+
+        if (res.status === 'ERROR') {
+            this.log(`Error upgrading ${args.package}. Error ${res.context}`)
+            return
+        }
+
+        this.log(`Upgraded ${args.package} to version ${flags.version}`)
     }
 }
