@@ -1,6 +1,10 @@
 # upgrader
 A tool to upgrade your js/node libraries
 
+Currently, this command does not work with monorepos. It will be fixed in the future.
+
+See roadmap for more details.
+
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
 [![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
@@ -74,3 +78,17 @@ DESCRIPTION
 ```
 
 <!-- commandsstop -->
+
+## ROADMAP
+
+Here below are the features that are planned for the next releases of the project. The list is not exhaustive and is subject to change. If you have any question or suggestion, please open an issue on GitHub.
+
+## 1.0.0
+    
+      * [ ] Add support for interactive mode
+      * [ ] Add support for upgrading multiple packages at once
+      * [ ] Add support for upgrading packages to the latest version
+      * [ ] Add support for upgrading packages to the latest major version
+      * [ ] Add support for upgrading packages to the latest version of a specific major version
+      * [ ] Add support for upgrading packages to the latest version of a specific minor version
+      * [ ] Add support to manage multiple package* files
