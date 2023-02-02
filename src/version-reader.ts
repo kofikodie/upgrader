@@ -30,9 +30,7 @@ export default class VersionReader {
         const packageJson = JSON.parse(await fs.readFile(this.filePath, 'utf8'))
 
         if (mode === 'prod') {
-            console.log('packageJson.dependencies', packageJson.dependencies)
             if (!packageJson.dependencies) {
-                console.log('No production dependencies found')
                 return {
                     status: ERROR,
                     body: 'No production dependencies found',
@@ -70,6 +68,13 @@ export default class VersionReader {
             return {
                 status: SUCCESS,
                 body: JSON.stringify(packageJson.peerDependencies),
+            }
+        }
+
+        if (mode) {
+            return {
+                status: ERROR,
+                body: 'Invalid mode. Valid modes are: dev, prod, peer',
             }
         }
 

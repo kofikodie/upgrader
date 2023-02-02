@@ -99,4 +99,12 @@ describe('Version Reader', async () => {
         expect(res.status).to.equal('SUCCESS')
         expect(res.body).to.equal('{"library-name":"1.0.0","library-name-2":"2.0.0","@types/library-name":"1.0.0","@types/library-name-2":"2.0.0","library-name-peer":"1.0.0","library-name-peer-2":"2.0.0"}')
     })
+
+    it('should return an error if given a mode different than dev/prod/peer', async () => {
+        const vReader = new VersionReader(packageJsonFilePath)
+        const res = await vReader.readMany('invalid')
+
+        expect(res.status).to.equal('ERROR')
+        expect(res.body).to.equal('Invalid mode. Valid modes are: dev, prod, peer')
+    })
 })
