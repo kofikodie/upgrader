@@ -20,14 +20,17 @@
     "@oclif/core": "^1.23.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.12",
-    "axios": "^1.2.2"
+    "axios": "^1.2.2",
+    "inquirer": "^9.1.4"
   },
   "devDependencies": {
     "@oclif/test": "^2.2.19",
-    "@types/chai": "^4",
-    "@types/mocha": "^9.0.0",
+    "@types/chai": "^4.3.4",
+    "@types/inquirer": "^9.0.3",
+    "@types/jest": "^29.4.0",
+    "@types/mocha": "^9.1.1",
     "@types/node": "^16.18.11",
-    "chai": "^4",
+    "chai": "^4.3.7",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
     "eslint-config-oclif-typescript": "^1.0.3",

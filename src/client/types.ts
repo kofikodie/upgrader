@@ -1,4 +1,4 @@
-import {ERROR, ResponseType} from '../common/types'
+import {ERROR, ResponseType, SUCCESS} from '../common/types'
 
 export interface PackageInterface {
     _id: string
@@ -49,5 +49,3 @@ export interface PackageVersionInterface {
 export type NpmClientErrorResponse = Pick<ResponseType, 'context'> & {status: typeof ERROR}
 export type NpmClientSuccessResponse = Pick <ResponseType, 'context'> & {status: typeof SUCCESS}
 export type NpmClientResponse = NpmClientErrorResponse | NpmClientSuccessResponse
-
-export const SUCCESS = 'SUCCESS'

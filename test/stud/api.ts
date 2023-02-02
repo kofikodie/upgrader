@@ -1,6 +1,6 @@
 import {NpmClientInterface} from '../../src/client/api.interface'
-import {NpmClientErrorResponse, NpmClientResponse, PackageInterface, SUCCESS} from '../../src/client/types'
-import {ERROR} from '../../src/common/types'
+import {NpmClientErrorResponse, NpmClientResponse, PackageInterface} from '../../src/client/types'
+import {ERROR, SUCCESS} from '../../src/common/types'
 import npmApi from '../../test/library-name.json'
 
 export default class NpmClient implements NpmClientInterface {

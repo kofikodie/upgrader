@@ -4,8 +4,7 @@ import NpmClient from '../../src/client/api'
 import {config} from '../../src/client/config'
 import libraryName from '../../test/library-name.json'
 import libraryVersions from '../../test/library-versions.json'
-import {SUCCESS} from '../../src/client/types'
-import {ERROR} from '../../src/common/types'
+import {ERROR, SUCCESS} from '../../src/common/types'
 
 describe('Test npm apis', () => {
     const packageName = 'libary-name'

@@ -38,6 +38,7 @@ export default class Up extends Command {
 
         const currVersionParsed = currVersion.body.replace(/[^\d.]/g, '')
         this.log(`Current version is ${currVersionParsed}`)
+
         if (currVersionParsed === flags.version) {
             this.log(`Already on version ${flags.version}`)
             return

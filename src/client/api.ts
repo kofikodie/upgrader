@@ -1,8 +1,8 @@
 import axios from 'axios'
-import {ERROR} from '../common/types'
+import {ERROR, SUCCESS} from '../common/types'
 import {NpmClientInterface} from './api.interface'
 import {config} from './config'
-import {NpmClientErrorResponse, NpmClientResponse, PackageInterface, SUCCESS} from './types'
+import {NpmClientErrorResponse, NpmClientResponse, PackageInterface} from './types'
 
 const npmClient = axios.create({
     baseURL: config.registry,
