@@ -32,20 +32,20 @@ export default class InstallLibraryVersionCommand implements CommandInterface {
         if (this.oldVersion === '') {
             return {
                 status: ERROR,
-                context: `Error updating ${this.libraryName} to version ${this.newVersion}.`,
+                context: `Error rollbacking ${this.libraryName} to previous version ${this.newVersion}.`,
             }
         }
 
-        if (this.libraryName === 'library-name') {
+        if (this.libraryName === 'library-name-rollback') {
             return {
                 status: UPDATED,
-                context: `Updated ${this.libraryName} to version ${this.oldVersion}`,
+                context: `Rollback ${this.libraryName} to previous version ${this.oldVersion}`,
             }
         }
 
         return {
             status: ERROR,
-            context: `Error updating ${this.libraryName} to version ${this.newVersion}.`,
+            context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: Run npm i ${this.libraryName}@${this.newVersion} to fix it`,
         }
     }
 }
