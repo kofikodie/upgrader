@@ -2,6 +2,7 @@ import {Command} from '@oclif/core'
 import {prompt} from 'inquirer'
 import NpmClient from '../client/api'
 import VersionReader from '../version-reader'
+import * as fs from 'node:fs'
 
 export default class Start extends Command {
     static description = 'start interactive mode to upgrade packages'
@@ -21,6 +22,12 @@ export default class Start extends Command {
         }
 
         const packageJsonFilePath = './package.json'
+
+        if (!fs.existsSync(packageJsonFilePath)) {
+            this.log('No package.json file found')
+            return
+        }
+
         const vReader = new VersionReader(packageJsonFilePath)
         const libraries = await vReader.readMany(args.mode ?? undefined)
 
@@ -34,22 +41,23 @@ export default class Start extends Command {
         this.log(answers)
         if (!args.mode) {
             this.log('Upgrading all packages')
-            return
         }
 
         if (args.mode === 'dev') {
             this.log('Upgrading development packages')
-            return
         }
 
         if (args.mode === 'prod') {
             this.log('Upgrading production packages')
-            return
         }
 
         if (args.mode === 'peer') {
             this.log('Upgrading peer packages')
         }
+
+        // turn answers into a array
+        const answersArray = Object.entries(answers).map(([key, value]) => ({key, value}))
+        console.log(answersArray)
     }
 
     async getInteractiveMode(libraries: string): Promise<any> {
@@ -67,7 +75,7 @@ export default class Start extends Command {
                 type: 'list',
                 name: library.name ?? '',
                 message: `What version of ${library.name} do you want to upgrade to (Current version is ${library.version})?`,
-                choices: [...await this.getVersions(library.name, library.version), 'None'],
+                choices: library.version.length === 1 ? [library.version, 'None'] : [...await this.getVersions(library.name, library.version), 'None'],
             })))
 
         const answers = await prompt([
