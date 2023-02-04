@@ -2,7 +2,7 @@ import Upgrader from '../../src/service/upgrader'
 import NpmClientStud from '../stud/api'
 import {expect} from 'chai'
 import * as fs from 'node:fs/promises'
-import {ERROR, UPDATED} from '../../src/common/types'
+import {ERROR, SUCCESS, UPDATED} from '../../src/common/types'
 import InstallLibraryVersionCommand from '../stud/install-cmd'
 import {CommandInterface} from '../../src/commands/locals/local-cmd.interface'
 
@@ -45,5 +45,13 @@ describe('Upgrader', async () => {
         const res = await upgrader.updateSinglePackage('library-name-invalid', '-1.0.0')
 
         expect(res.status).to.equal(ERROR)
+    })
+
+    it('should not upgrade a package and rollback given a version and a package.json with a failed install cmd', async () => {
+        const upgrader = new Upgrader(new NpmClientStud(), installLibVersCmd)
+        const res = await upgrader.updateSinglePackage('library-name-rollback', '1.0.0')
+
+        expect(res.status).to.equal(SUCCESS)
+        expect(res.context).to.equal('Rollback library-name-rollback to previous version 1.0.0')
     })
 })

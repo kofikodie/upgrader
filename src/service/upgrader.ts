@@ -16,10 +16,11 @@ export default class Upgrader {
 
     async updateSinglePackage(packageName: string, packageVersion: string): Promise<ResponseType> {
         const packageExists = await this.npmClient.checkPackageExists(packageName)
+
         if (packageExists.status === ERROR) {
             return {
-                status: ERROR,
-                context: `Package ${packageName} does not exist`,
+                status: packageExists.status,
+                context: packageExists.context,
             }
         }
 
@@ -27,8 +28,8 @@ export default class Upgrader {
 
         if (packageVersionExists.status === ERROR) {
             return {
-                status: ERROR,
-                context: `Package ${packageName} does not have version ${packageVersion}`,
+                status: packageVersionExists.status,
+                context: packageVersionExists.context,
             }
         }
 
@@ -39,13 +40,22 @@ export default class Upgrader {
 
             return {
                 status: cmdResult.status,
-                context: `Error updating ${packageName} to version ${packageVersion}. Error: ${cmdResult.context}. Rollback successful`,
+                context: cmdResult.context,
             }
         }
 
         return {
             status: cmdResult.status,
-            context: `Updated ${packageName} to version ${packageVersion}`,
+            context: cmdResult.context,
+        }
+    }
+
+    async updateManyPackages(packages: Array<{ key: string; value: string }>): Promise<ResponseType> {
+        const results = await Promise.all(packages.map(({key, value}) => this.updateSinglePackage(key, value)))
+
+        return {
+            status: results.every(({status}) => status === 'UPDATED') ? 'UPDATED' : 'ERROR',
+            context: results.map(({context}) => context).join(''),
         }
     }
 }
