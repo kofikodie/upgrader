@@ -15,7 +15,7 @@ export default class InstallLibraryVersionCommand implements CommandInterface {
     }
 
     execute(): ResponseType {
-        if (this.libraryName === 'library-name') {
+        if (this.libraryName === 'package-name') {
             return {
                 status: UPDATED,
                 context: `Updated ${this.libraryName} to version ${this.newVersion}`,
@@ -36,7 +36,7 @@ export default class InstallLibraryVersionCommand implements CommandInterface {
             }
         }
 
-        if (this.libraryName === 'library-name-rollback') {
+        if (this.libraryName === 'package-name-rollback') {
             return {
                 status: UPDATED,
                 context: `Rollback ${this.libraryName} to previous version ${this.oldVersion}`,
@@ -45,7 +45,7 @@ export default class InstallLibraryVersionCommand implements CommandInterface {
 
         return {
             status: ERROR,
-            context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: Run npm i ${this.libraryName}@${this.newVersion} to fix it`,
+            context: `Error updating ${this.libraryName} to version ${this.newVersion}. Run npm i ${this.libraryName}@${this.newVersion} to fix it`,
         }
     }
 }
