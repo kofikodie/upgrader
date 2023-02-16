@@ -16,7 +16,6 @@ export default class Upgrader {
 
     async updateSinglePackage(packageName: string, packageVersion: string): Promise<ResponseType> {
         const packageExists = await this.npmClient.checkPackageExists(packageName)
-
         if (packageExists.status === ERROR) {
             return {
                 status: packageExists.status,
@@ -25,7 +24,6 @@ export default class Upgrader {
         }
 
         const packageVersionExists = await this.npmClient.checkPackageVersion(packageName, packageVersion)
-
         if (packageVersionExists.status === ERROR) {
             return {
                 status: packageVersionExists.status,
@@ -33,14 +31,14 @@ export default class Upgrader {
             }
         }
 
-        const cmdResult = this.installCmd.execute()
-
+        const cmdResult = await this.installCmd.execute()
+        console.log(cmdResult)
         if (cmdResult.status === ERROR) {
-            this.installCmd.undo()
+            const iCmd = await this.installCmd.undo()
 
             return {
-                status: cmdResult.status,
-                context: cmdResult.context,
+                status: iCmd.status,
+                context: iCmd.context,
             }
         }
 
@@ -50,8 +48,8 @@ export default class Upgrader {
         }
     }
 
-    async updateManyPackages(packages: Array<{ key: string; value: string }>): Promise<ResponseType> {
-        const results = await Promise.all(packages.map(({key, value}) => this.updateSinglePackage(key, value)))
+    async updateManyPackages(packages: Array<{ library: string; version: string }>): Promise<ResponseType> {
+        const results = await Promise.all(packages.map(({library, version}) => this.updateSinglePackage(library, version)))
 
         return {
             status: results.every(({status}) => status === 'UPDATED') ? 'UPDATED' : 'ERROR',

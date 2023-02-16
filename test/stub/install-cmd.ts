@@ -14,38 +14,48 @@ export default class InstallLibraryVersionCommand implements CommandInterface {
         this.libraryName = libraryName
     }
 
-    execute(): ResponseType {
+    execute(): Promise<ResponseType> {
         if (this.libraryName === 'package-name') {
-            return {
-                status: UPDATED,
-                context: `Updated ${this.libraryName} to version ${this.newVersion}`,
-            }
+            return new Promise(resolve => {
+                resolve({
+                    status: UPDATED,
+                    context: `Updated ${this.libraryName} to version ${this.newVersion}`,
+                })
+            })
         }
 
-        return {
-            status: ERROR,
-            context: `Error updating ${this.libraryName} to version ${this.newVersion}.`,
-        }
+        return new Promise(resolve => {
+            resolve({
+                status: ERROR,
+                context: `Error updating ${this.libraryName} to version ${this.newVersion}.`,
+            })
+        })
     }
 
-    undo(): ResponseType {
+    undo(): Promise<ResponseType> {
         if (this.oldVersion === '') {
-            return {
-                status: ERROR,
-                context: `Error rollbacking ${this.libraryName} to previous version ${this.newVersion}.`,
-            }
+            return new Promise(resolve => {
+                resolve({
+                    status: ERROR,
+                    context: `Error updating ${this.libraryName} to version ${this.newVersion}.`,
+                })
+            })
         }
 
         if (this.libraryName === 'package-name-rollback') {
-            return {
-                status: UPDATED,
-                context: `Rollback ${this.libraryName} to previous version ${this.oldVersion}`,
-            }
+            return new Promise(resolve => {
+                resolve({
+                    status: UPDATED,
+                    context: `Rollback ${this.libraryName} to previous version ${this.oldVersion}`,
+                })
+            })
         }
 
-        return {
-            status: ERROR,
-            context: `Error updating ${this.libraryName} to version ${this.newVersion}. Run npm i ${this.libraryName}@${this.newVersion} to fix it`,
-        }
+        return new Promise(resolve => {
+            resolve({
+                status: ERROR,
+                context: `Error updating ${this.libraryName} to version ${this.newVersion}. Run npm i ${this.libraryName}@${this.newVersion} to fix it`,
+            })
+        })
     }
 }

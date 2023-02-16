@@ -1,6 +1,6 @@
 import {ResponseType} from '../../common/types'
 
 export interface CommandInterface {
-    execute(): ResponseType;
-    undo(): ResponseType;
+    execute(): Promise<ResponseType>
+    undo(): Promise<ResponseType>
 }

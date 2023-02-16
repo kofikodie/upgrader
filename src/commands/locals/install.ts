@@ -16,69 +16,68 @@ export default class InstallLibraryVersionCommand implements CommandInterface {
         this.libraryName = libraryName
     }
 
-    execute(): ResponseType {
-        const packageJson = JSON.parse(fs.readFileSync(this.filePath, 'utf8'))
-        this.oldVersion = packageJson.dependencies[this.libraryName]
-
-        exec(`npm install ${this.libraryName}@${this.newVersion}`, (error, stdout, stderr) => {
-            if (error) {
-                return {
-                    status: ERROR,
-                    context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: ${error.message}`,
+    execute(): Promise<ResponseType> {
+        return new Promise(resolve => {
+            const packageJson = JSON.parse(fs.readFileSync(this.filePath, 'utf8'))
+            this.oldVersion = packageJson.dependencies[this.libraryName]
+            console.log(`npm install ${this.libraryName}@${this.newVersion}`)
+            exec(`npm install ${this.libraryName}@${this.newVersion}`, (error, stdout, stderr) => {
+                if (error) {
+                    resolve({
+                        status: ERROR,
+                        context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: ${error.message}`,
+                    })
+                    return
                 }
-            }
 
-            if (stderr) {
-                return {
-                    status: ERROR,
-                    context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: ${stderr}`,
+                if (stderr) {
+                    resolve({
+                        status: ERROR,
+                        context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: ${stderr}`,
+                    })
+                    return
                 }
-            }
 
-            return {
-                status: UPDATED,
-                context: `Updated ${this.libraryName} to version ${this.newVersion}`,
-            }
+                resolve({
+                    status: UPDATED,
+                    context: `Updated ${this.libraryName} to version ${this.newVersion}`,
+                })
+            })
         })
-
-        return {
-            status: UPDATED,
-            context: `Updated ${this.libraryName} to version ${this.newVersion}`,
-        }
     }
 
-    undo(): ResponseType {
-        if (this.oldVersion === '') {
-            return {
-                status: ERROR,
-                context: `Error updating ${this.libraryName} to version ${this.newVersion}.`,
-            }
-        }
-
-        exec(`npm install ${this.libraryName}@${this.oldVersion}`, (error, stdout, stderr) => {
-            if (error) {
-                return {
+    undo(): Promise<ResponseType> {
+        return new Promise(resolve => {
+            if (this.oldVersion === '') {
+                resolve({
                     status: ERROR,
-                    context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: ${error.message}`,
-                }
+                    context: `Error updating ${this.libraryName} to version ${this.newVersion}.`,
+                })
+                return
             }
 
-            if (stderr) {
-                return {
-                    status: ERROR,
-                    context: `Error updating ${this.libraryName} to version ${this.newVersion}. Error: ${stderr}`,
+            exec(`npm install ${this.libraryName}@${this.oldVersion}`, (error, stdout, stderr) => {
+                if (error) {
+                    resolve({
+                        status: ERROR,
+                        context: `Error updating ${this.libraryName} to version ${this.oldVersion}. Error: ${error.message}`,
+                    })
+                    return
                 }
-            }
 
-            return {
-                status: UPDATED,
-                context: `Updated ${this.libraryName} to version ${this.newVersion}`,
-            }
+                if (stderr) {
+                    resolve({
+                        status: ERROR,
+                        context: `Error updating ${this.libraryName} to version ${this.oldVersion}. Error: ${stderr}`,
+                    })
+                    return
+                }
+
+                resolve({
+                    status: UPDATED,
+                    context: `Updated ${this.libraryName} to version ${this.oldVersion}`,
+                })
+            })
         })
-
-        return {
-            status: UPDATED,
-            context: `Updated ${this.libraryName} to version ${this.newVersion}`,
-        }
     }
 }

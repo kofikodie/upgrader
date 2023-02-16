@@ -3,6 +3,8 @@ import {prompt} from 'inquirer'
 import NpmClient from '../client/api'
 import VersionReader from '../version-reader'
 import * as fs from 'node:fs'
+import Upgrader from '../service/upgrader'
+import InstallLibraryVersionCommand from './locals/install'
 
 export default class Start extends Command {
     static description = 'start interactive mode to upgrade packages'
@@ -36,28 +38,44 @@ export default class Start extends Command {
             return
         }
 
-        const answers = await this.getInteractiveMode(libraries.body)
+        const answers: {[key: string]: string} = await this.getInteractiveMode(libraries.body)
 
-        this.log(answers)
-        if (!args.mode) {
+        switch (args.mode) {
+        case undefined:
             this.log('Upgrading all packages')
-        }
-
-        if (args.mode === 'dev') {
+            break
+        case 'dev':
             this.log('Upgrading development packages')
-        }
-
-        if (args.mode === 'prod') {
+            break
+        case 'prod':
             this.log('Upgrading production packages')
-        }
-
-        if (args.mode === 'peer') {
+            break
+        case 'peer':
             this.log('Upgrading peer packages')
+            break
+        default:
+            // handle the case where args.mode has an unexpected value
+            break
         }
 
-        // turn answers into a array
-        const answersArray = Object.entries(answers).map(([key, value]) => ({key, value}))
+        const answersArray = Object.entries(answers).map(([library, version]) => ({library, version}))
         console.log(answersArray)
+
+        const upgrader = new Upgrader(new NpmClient(), new InstallLibraryVersionCommand(
+            packageJsonFilePath,
+            '',
+            '',
+            '',
+        ))
+
+        const res = await upgrader.updateManyPackages(answersArray)
+
+        if (res.status === 'ERROR') {
+            this.log(`Error upgrading libraries. ${res.context}`)
+            return
+        }
+
+        this.log('Done. Please consider putting a star on the project')
     }
 
     async getInteractiveMode(libraries: string): Promise<any> {
