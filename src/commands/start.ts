@@ -4,7 +4,6 @@ import NpmClient from '../client/api'
 import VersionReader from '../version-reader'
 import * as fs from 'node:fs'
 import Upgrader from '../service/upgrader'
-import InstallLibraryVersionCommand from './locals/install'
 
 export default class Start extends Command {
     static description = 'start interactive mode to upgrade packages'
@@ -31,14 +30,14 @@ export default class Start extends Command {
         }
 
         const vReader = new VersionReader(packageJsonFilePath)
-        const libraries = await vReader.readMany(args.mode ?? undefined)
+        const packages = await vReader.readMany(args.mode ?? undefined)
 
-        if (libraries.status === 'ERROR') {
-            this.log(`Error reading libraries: ${libraries.body}`)
+        if (packages.status === 'ERROR') {
+            this.log(`Error reading packages: ${packages.body}`)
             return
         }
 
-        const answers: {[key: string]: string} = await this.getInteractiveMode(libraries.body)
+        const answers: {[key: string]: string} = await this.getInteractiveMode(packages.body)
 
         switch (args.mode) {
         case undefined:
@@ -58,29 +57,24 @@ export default class Start extends Command {
             break
         }
 
-        const answersArray = Object.entries(answers).map(([library, version]) => ({library, version}))
-        console.log(answersArray)
+        const answersArray = Object.entries(answers)
+            .map(([packageName, packageVersion]) => ({packageName, packageVersion}))
+            .filter(({packageVersion}) => packageVersion !== 'None')
 
-        const upgrader = new Upgrader(new NpmClient(), new InstallLibraryVersionCommand(
-            packageJsonFilePath,
-            '',
-            '',
-            '',
-        ))
-
+        const upgrader = new Upgrader()
         const res = await upgrader.updateManyPackages(answersArray)
 
         if (res.status === 'ERROR') {
-            this.log(`Error upgrading libraries. ${res.context}`)
+            this.log(`Error upgrading packages. Error ${res.context}`)
             return
         }
 
-        this.log('Done. Please consider putting a star on the project')
+        this.log('Packages upgraded successfully. Please consider putting a star on the project')
     }
 
-    async getInteractiveMode(libraries: string): Promise<any> {
-        const librariesArray = libraries.split(',')
-        const librariesWithVersions = librariesArray.map(library => {
+    async getInteractiveMode(packages: string): Promise<any> {
+        const packagesArray = packages.split(',')
+        const packagesWithVersions = packagesArray.map(library => {
             const [nameWithSpecialChars, versionWithSpecialChars] = library.split(':')
             const version = versionWithSpecialChars.replace(/[^\d.]/g, '')
             const name = nameWithSpecialChars.replace(/["{}]/g, '')
@@ -89,11 +83,11 @@ export default class Start extends Command {
         })
 
         const questions =  await Promise.all(
-            librariesWithVersions.map(async library => ({
+            packagesWithVersions.map(async pkg => ({
                 type: 'list',
-                name: library.name ?? '',
-                message: `What version of ${library.name} do you want to upgrade to (Current version is ${library.version})?`,
-                choices: library.version.length === 1 ? [library.version, 'None'] : [...await this.getVersions(library.name, library.version), 'None'],
+                name: pkg.name ?? '',
+                message: `What version of ${pkg.name} do you want to upgrade to (Current version is ${pkg.version})?`,
+                choices: pkg.version.length === 1 ? [pkg.version, 'None'] : [...await this.getVersions(pkg.name, pkg.version), 'None'],
             })))
 
         const answers = await prompt([
@@ -103,17 +97,17 @@ export default class Start extends Command {
         return answers
     }
 
-    public async getVersions(library: string, version: string): Promise<string[]> {
+    public async getVersions(pkg: string, version: string): Promise<string[]> {
         const npmClient = new NpmClient()
 
-        const libraryInfo = await npmClient.getPackageInfo(library)
+        const pkgInfo = await npmClient.getPackageInfo(pkg)
 
-        if ('status' in libraryInfo) {
-            this.log(`Error getting info for ${library}`)
+        if ('status' in pkgInfo) {
+            this.log(`Error getting info for ${pkg}`)
             return []
         }
 
-        const versions = await npmClient.getPackageStableUpgradeVersions(libraryInfo, version)
+        const versions = await npmClient.getPackageStableUpgradeVersions(pkgInfo, version)
 
         return versions
     }

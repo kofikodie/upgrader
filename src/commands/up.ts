@@ -1,8 +1,6 @@
 import {Command, Flags} from '@oclif/core'
-import NpmClient from '../client/api'
 import Upgrader from '../service/upgrader'
 import VersionReader from '../version-reader'
-import InstallLibraryVersionCommand from './locals/install'
 
 export default class Up extends Command {
     static description = 'Upgrade a package to a specific version'
@@ -44,14 +42,12 @@ export default class Up extends Command {
             return
         }
 
-        const upgrader = new Upgrader(new NpmClient(), new InstallLibraryVersionCommand(
-            packageJsonFilePath,
-            args.package,
-            flags.version,
-            currVersionParsed,
-        ))
+        const upgrader = new Upgrader()
 
-        const res = await upgrader.updateSinglePackage(args.package, flags.version)
+        const res = await upgrader.updateSinglePackage({
+            packageName: args.package,
+            packageVersion: flags.version,
+        })
 
         if (res.status === 'ERROR') {
             this.log(`Error upgrading ${args.package}. Error ${res.context}`)
