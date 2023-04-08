@@ -6,5 +6,6 @@
 
   "rules": {
     "indent": ["error", 4],
+    "node/no-extraneous-import": "off"
   }
 }

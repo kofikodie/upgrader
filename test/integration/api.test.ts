@@ -4,12 +4,12 @@ import NpmClient from '../../src/client/api'
 import {config} from '../../src/client/config'
 import libraryName from '../../test/library-name.json'
 import libraryVersions from '../../test/library-versions.json'
-import {SUCCESS} from '../../src/client/types'
-import {ERROR} from '../../src/common/types'
+import {ERROR, SUCCESS} from '../../src/common/types'
 
 describe('Test npm apis', () => {
     const packageName = 'libary-name'
     const packageVersion = '0.4.13'
+    const packageVersionOld = '0.4.11'
 
     const packageNameInvalid = 'invalid-libary-name'
     const packageVersionInvalid = '1.4.14'
@@ -41,6 +41,20 @@ describe('Test npm apis', () => {
         const versions = await npm.getPackageStableUpgradeVersions(libraryName, packageVersion)
 
         expect(versions).to.eql(libraryVersions.versions)
+    })
+
+    it('should return the next two the stable upgraded version of an package given the package name', async () => {
+        nock(config.registry)
+            .get(`/${packageName}`)
+            .reply(200, libraryName)
+
+        const npm = new NpmClient()
+        const versions = await npm.getPackageStableUpgradeVersions(libraryName, packageVersionOld)
+
+        expect(versions).to.eql([
+            '0.4.12',
+            '0.4.13',
+        ])
     })
 
     it('should return true if a package version exists', async () => {

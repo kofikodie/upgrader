@@ -1,51 +1,44 @@
-import {NpmClientInterface} from '../client/api.interface'
-import {CommandInterface} from '../commands/locals/local-cmd.interface'
-import {ERROR, ResponseType} from '../common/types'
+import * as shell from 'shelljs'
+import {ERROR, ResponseType, UPDATED} from '../common/types'
 
 export default class Upgrader {
-    private npmClient: NpmClientInterface
-    private installCmd: CommandInterface
+    async updateSinglePackage(packageNameVersion: {packageName: string; packageVersion: string}): Promise<ResponseType> {
+        return new Promise(resolve => {
+            const command = `npm install ${packageNameVersion.packageName}@${packageNameVersion.packageVersion}`
+            const result = shell.exec(command, {silent: true})
 
-    constructor(
-        npmClient: NpmClientInterface,
-        installCmd: CommandInterface,
-    ) {
-        this.npmClient = npmClient
-        this.installCmd = installCmd
+            if (result.code !== 0) {
+                resolve({
+                    status: ERROR,
+                    context: `Error updating ${packageNameVersion.packageName} to version ${packageNameVersion.packageVersion}. ${result.stderr}`,
+                })
+                return
+            }
+
+            resolve({
+                status: UPDATED,
+                context: `Updated ${packageNameVersion.packageName} to version ${packageNameVersion.packageVersion}`,
+            })
+        })
     }
 
-    async updateSinglePackage(packageName: string, packageVersion: string): Promise<ResponseType> {
-        const packageExists = await this.npmClient.checkPackageExists(packageName)
-        if (packageExists.status === ERROR) {
-            return {
-                status: ERROR,
-                context: `Package ${packageName} does not exist`,
+    async updateManyPackages(packagesNamesAndVersion: Array<{packageName: string; packageVersion: string}>): Promise<ResponseType> {
+        return new Promise(resolve => {
+            const command = `npm install ${packagesNamesAndVersion.map(({packageName, packageVersion}) => `${packageName}@${packageVersion}`).join(' ')}`
+            const result = shell.exec(command, {silent: true})
+
+            if (result.code !== 0) {
+                resolve({
+                    status: ERROR,
+                    context: `Error updating packages to versions. Error: ${result.stderr}`,
+                })
+                return
             }
-        }
 
-        const packageVersionExists = await this.npmClient.checkPackageVersion(packageName, packageVersion)
-
-        if (packageVersionExists.status === ERROR) {
-            return {
-                status: ERROR,
-                context: `Package ${packageName} does not have version ${packageVersion}`,
-            }
-        }
-
-        const cmdResult = this.installCmd.execute()
-
-        if (cmdResult.status === ERROR) {
-            this.installCmd.undo()
-
-            return {
-                status: cmdResult.status,
-                context: `Error updating ${packageName} to version ${packageVersion}. Error: ${cmdResult.context}. Rollback successful`,
-            }
-        }
-
-        return {
-            status: cmdResult.status,
-            context: `Updated ${packageName} to version ${packageVersion}`,
-        }
+            resolve({
+                status: UPDATED,
+                context: 'Updated packages to versions',
+            })
+        })
     }
 }

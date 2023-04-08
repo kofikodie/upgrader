@@ -1,8 +1,8 @@
 import axios from 'axios'
-import {ERROR} from '../common/types'
+import {ERROR, SUCCESS} from '../common/types'
 import {NpmClientInterface} from './api.interface'
 import {config} from './config'
-import {NpmClientErrorResponse, NpmClientResponse, PackageInterface, SUCCESS} from './types'
+import {NpmClientErrorResponse, NpmClientResponse, PackageInterface} from './types'
 
 const npmClient = axios.create({
     baseURL: config.registry,
@@ -82,21 +82,19 @@ export default class NpmClient implements NpmClientInterface {
         const versions = Object.keys(packageInfo.versions)
 
         const orderedVersions = versions.sort((a, b) => {
-            const aVersion = a.split('.')
-            const bVersion = b.split('.')
+            const [aMajor, aMinor, aPatch] = a.split('.').map(element => Number(element))
+            const [bMajor, bMinor, bPatch] = b.split('.').map(element => Number(element))
 
-            for (const [i, element] of aVersion.entries()) {
-                if (element > bVersion[i]) {
-                    return -1
-                }
-
-                if (element < bVersion[i]) {
-                    return 1
-                }
+            if (aMajor !== bMajor) {
+                return aMajor - bMajor
             }
 
-            return 0
-        })
+            if (aMinor !== bMinor) {
+                return aMinor - bMinor
+            }
+
+            return aPatch - bPatch
+        }).slice(versions.indexOf(packageVersion) + 1, versions.indexOf(packageVersion) + 3)
 
         const stableVersions = orderedVersions.filter(version => {
             const versionParts = version.split('.')
@@ -110,20 +108,6 @@ export default class NpmClient implements NpmClientInterface {
             return true
         })
 
-        const upgradeVersions = stableVersions.filter(version => {
-            let currentVersionParts = Number.parseInt(packageVersion.split('.').join(''), 10)
-            if (packageVersion.split('.')[0] === '0') {
-                currentVersionParts = [...currentVersionParts.toString()].unshift('0')
-            }
-
-            let versionParts = Number.parseFloat(version.split('.').join(''))
-            if (version.split('.')[0] === '0') {
-                versionParts = [...versionParts.toString()].unshift('0')
-            }
-
-            return versionParts > currentVersionParts
-        })
-
-        return upgradeVersions
+        return stableVersions.slice(0, 2)
     }
 }
