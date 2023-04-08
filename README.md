@@ -85,7 +85,7 @@ Here below are the features that are planned for the next releases of the projec
 
 ## 1.0.0
     
-- [ ] Add support for interactive mode
+- [x] Add support for interactive mode
 - [ ] Add support for upgrading multiple packages at once
 - [ ] Add support for upgrading packages to the latest version
 - [ ] Add support for upgrading packages to the latest major version
