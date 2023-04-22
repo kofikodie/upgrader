@@ -110,4 +110,75 @@ export default class NpmClient implements NpmClientInterface {
 
         return stableVersions.slice(0, 2)
     }
+
+    async getLatestMajorVersion(packageInfo: PackageInterface, packageVersion: string): Promise<string> {
+        const versions = Object.keys(packageInfo.versions);
+
+        const orderedVersions = versions
+            .sort((a, b) => {
+            const [aMajor, aMinor, aPatch] = a.split('.').map(element => Number(element))
+            const [bMajor, bMinor, bPatch] = b.split('.').map(element => Number(element))
+
+            if (aMajor !== bMajor) {
+                return aMajor - bMajor
+            }
+
+            if (aMinor !== bMinor) {
+                return aMinor - bMinor
+            }
+
+            return aPatch - bPatch
+            })
+            .slice(versions.indexOf(packageVersion) + 1);
+
+        const latestMajorVersion = orderedVersions.find(version => version.startsWith(`${packageVersion.split('.')[0]}.`)) || '';
+
+        return latestMajorVersion;
+    }
+
+    async getLatestMinorVersion(packageInfo: PackageInterface, packageVersion: string): Promise<string> {
+        const versions = Object.keys(packageInfo.versions)
+
+        const orderedVersions = versions.sort((a, b) => {
+            const [aMajor, aMinor, aPatch] = a.split('.').map(element => Number(element))
+            const [bMajor, bMinor, bPatch] = b.split('.').map(element => Number(element))
+
+            if (aMajor !== bMajor) {
+                return aMajor - bMajor
+            }
+
+            if (aMinor !== bMinor) {
+                return aMinor - bMinor
+            }
+
+            return aPatch - bPatch
+        }).slice(versions.indexOf(packageVersion) + 1, versions.indexOf(packageVersion) + 3)
+
+        const latestMinorVersion = orderedVersions[0]
+
+        return latestMinorVersion
+    }
+
+    async getLatestPatchVersion(packageInfo: PackageInterface, packageVersion: string): Promise<string> {
+        const versions = Object.keys(packageInfo.versions)
+
+        const orderedVersions = versions.sort((a, b) => {
+            const [aMajor, aMinor, aPatch] = a.split('.').map(element => Number(element))
+            const [bMajor, bMinor, bPatch] = b.split('.').map(element => Number(element))
+
+            if (aMajor !== bMajor) {
+                return aMajor - bMajor
+            }
+
+            if (aMinor !== bMinor) {
+                return aMinor - bMinor
+            }
+
+            return aPatch - bPatch
+        }).slice(versions.indexOf(packageVersion) + 1, versions.indexOf(packageVersion) + 3)
+
+        const latestPatchVersion = orderedVersions[1]
+
+        return latestPatchVersion
+    }
 }

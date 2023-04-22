@@ -33,10 +33,6 @@ describe('Test npm apis', () => {
     })
 
     it('should return all the stable upgraded version of an package given the package name', async () => {
-        nock(config.registry)
-            .get(`/${packageName}`)
-            .reply(200, libraryName)
-
         const npm = new NpmClient()
         const versions = await npm.getPackageStableUpgradeVersions(libraryName, packageVersion)
 
@@ -44,10 +40,6 @@ describe('Test npm apis', () => {
     })
 
     it('should return the next two the stable upgraded version of an package given the package name', async () => {
-        nock(config.registry)
-            .get(`/${packageName}`)
-            .reply(200, libraryName)
-
         const npm = new NpmClient()
         const versions = await npm.getPackageStableUpgradeVersions(libraryName, packageVersionOld)
 
@@ -100,4 +92,26 @@ describe('Test npm apis', () => {
 
         expect(exists.status).to.equal(ERROR)
     })
+
+    it('should return all package ordered by lastest major', async () => {
+        const npm = new NpmClient()
+        const versions = await npm.getLatestMajorVersion(libraryName, packageVersionOld)
+        console.log(versions)
+        expect(versions).to.eql('1.0.0')
+    })
+
+    it('should return all package ordered by lastest minor', async () => {
+        const npm = new NpmClient()
+        const versions = await npm.getLatestMinorVersion(libraryName, packageVersionOld)
+        console.log(versions)
+        expect(versions).to.eql('0.4.12')
+    })
+
+    it('should return all package ordered by lastest patch', async () => {
+        const npm = new NpmClient()
+        const versions = await npm.getLatestPatchVersion(libraryName, packageVersionOld)
+        console.log(versions)
+        expect(versions).to.eql('0.4.13')
+    })
+
 })

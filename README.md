@@ -89,6 +89,7 @@ Here below are the features that are planned for the next releases of the projec
 - [ ] Add support for upgrading multiple packages at once
 - [ ] Add support for upgrading packages to the latest version
 - [ ] Add support for upgrading packages to the latest major version
+- [ ] Add support for upgrading packages to the latest minor version
 - [ ] Add support for upgrading packages to the latest version of a specific major version
 - [ ] Add support for upgrading packages to the latest version of a specific minor version
 - [ ] Add support to manage multiple package* files
