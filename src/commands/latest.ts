@@ -1,5 +1,8 @@
 import {Command, Flags} from '@oclif/core'
 import * as fs from 'node:fs'
+import NpmClient from '../client/api'
+import VersionReader from '../version-reader'
+import Upgrader from '../service/upgrader'
 
 export default class Latest extends Command {
     static description = 'upgrade packages to latest major or minor version'
@@ -67,6 +70,50 @@ export default class Latest extends Command {
             this.log('Upgrading to latest minor version')
         }
 
+        const vReader = new VersionReader(packageJsonFilePath)
+        const packages = await vReader.readMany(flags.mode ?? undefined)
+
+        if (packages.status === 'ERROR') {
+            this.log(`Error reading packages: ${packages.body}`)
+            return
+        }
+
+        const packagesArray = packages.body.split(',')
+        const packagesWithVersions = await Promise.all(packagesArray.map(async (library) => {
+            const [nameWithSpecialChars, versionWithSpecialChars] = library.split(':')
+            const packageVersion = versionWithSpecialChars.replace(/[^\d.]/g, '')
+            const packageName = nameWithSpecialChars.replace(/["{}]/g, '')
+
+            const majorVersion = await this.getMajorVersions(packageName, packageVersion)
+            return {
+                packageName,
+                packageVersion: majorVersion,
+            }
+        }))
+
+        const upgrader = new Upgrader()
+        const upgradedPackages = await upgrader.updateManyPackages(packagesWithVersions)
+
+        if (upgradedPackages.status === 'ERROR') {
+            this.log(`Error upgrading packages: ${upgradedPackages.context}`)
+            return
+        }
+
         this.log('Upgrading packages to latest version')
+    }
+
+    public async getMajorVersions(pkg: string, version: string): Promise<string> {
+        const npmClient = new NpmClient()
+
+        const pkgInfo = await npmClient.getPackageInfo(pkg)
+
+        if ('status' in pkgInfo) {
+            this.log(`Error getting info for ${pkg}`)
+            return ''
+        }
+
+        const versions = await npmClient.getLatestMajorVersion(pkgInfo, version)
+        console.log(pkg,versions)
+        return versions
     }
 }
